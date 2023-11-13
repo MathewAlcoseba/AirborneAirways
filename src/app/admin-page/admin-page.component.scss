@@ -9,5 +9,37 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Sidebar styling */
+#sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  background-color: #343a40;
+  padding-top: 20px;
+}
 
+#sidebar ul.components {
+  padding: 0;
+}
 
+#sidebar ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#sidebar a {
+  color: white;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+}
+
+#sidebar a:hover {
+  background-color: #5a6268;
+}
+
+/* Content styling */
+#content {
+  margin-left: 250px;
+  padding: 15px;
+}

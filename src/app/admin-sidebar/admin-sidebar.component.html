@@ -1,0 +1,88 @@
+<div class="wrapper" [ngClass]="{ 'small-screen': isSmallScreen }">
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <img src="assets/planelogo.png" alt="Airborne Logo" />
+      <h3 *ngIf="!isSmallScreen">Airborne</h3>
+    </div>
+    <ul class="list-unstyled components">
+      <li [ngClass]="{ selected: selectedItem === 'home' }">
+        <a routerLink="/admin-home" (click)="selectItem('home')">
+          <img
+            [src]="
+              selectedItem === 'home'
+                ? 'assets/home-selected.png'
+                : 'assets/home-unselected.png'
+            "
+            id="userIcon"
+            style="margin-right: 7px"
+            [ngClass]="{ 'small-screen-margin': isSmallScreen }"
+          />
+          <span *ngIf="!isSmallScreen">Home</span>
+        </a>
+      </li>
+      <li [ngClass]="{ selected: selectedItem === 'dashboard' }">
+        <a routerLink="/dashboard" (click)="selectItem('dashboard')">
+          <img
+            [src]="
+              selectedItem === 'dashboard'
+                ? 'assets/dashboard-selected.png'
+                : 'assets/dashboard-unselected.png'
+            "
+            id="userIcon"
+            style="margin-right: 7px"
+            [ngClass]="{ 'small-screen-margin': isSmallScreen }"
+          />
+          <span *ngIf="!isSmallScreen">Dashboard</span>
+        </a>
+      </li>
+      <li [ngClass]="{ selected: selectedItem === 'users' }">
+        <a routerLink="/users" (click)="selectItem('users')">
+          <img
+            [src]="
+              selectedItem === 'users'
+                ? 'assets/people-selected.png'
+                : 'assets/people-unselected.png'
+            "
+            id="userIcon"
+            style="margin-right: 7px"
+            [ngClass]="{ 'small-screen-margin': isSmallScreen }"
+          />
+          <span *ngIf="!isSmallScreen">Users</span>
+        </a>
+      </li>
+      <li [ngClass]="{ selected: selectedItem === 'flights' }">
+        <a routerLink="/flights" (click)="selectItem('flights')">
+          <img
+            [src]="
+              selectedItem === 'flights'
+                ? 'assets/flights-selected.png'
+                : 'assets/flights-unselected.png'
+            "
+            id="userIcon"
+            style="margin-right: 7px"
+            [ngClass]="{ 'small-screen-margin': isSmallScreen }"
+          />
+          <span *ngIf="!isSmallScreen">Flights</span>
+        </a>
+      </li>
+      <li [ngClass]="{ selected: selectedItem === 'booked-flights' }">
+        <a routerLink="/booked-flights" (click)="selectItem('booked-flights')">
+          <img
+            [src]="
+              selectedItem === 'booked-flights'
+                ? 'assets/booked-selected.png'
+                : 'assets/booked-unselected.png'
+            "
+            id="userIcon"
+            style="margin-right: 7px"
+            [ngClass]="{ 'small-screen-margin': isSmallScreen }"
+          />
+          <span *ngIf="!isSmallScreen">Booked Flights</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div id="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
