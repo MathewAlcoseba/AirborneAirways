@@ -1,4 +1,6 @@
-/* Base styles */
+
+
+
 .navbar-brand {
     font-family: 'Paytone One', sans-serif;
     font-size: 2em;
@@ -52,35 +54,30 @@
     border-radius: 13px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   }
-//   .container {
-//     display: flex; /* Use flexbox for the container */
-//     justify-content: space-between; /* Distribute space between items */
-//     align-items: center; /* Center items vertically */
-// }
+
 
 .container {
   margin-top: 2%;
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: center; /* Center items horizontally in the container */
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .row {
-  display: flex; /* Create a nested flex container for the row */
-  justify-content: space-between; /* Distribute space between items in the row */
-  align-items: center; /* Center items vertically in the row */
+  display: flex; 
+  justify-content: space-between;
+  align-items: center; 
 }
 
 .image {
-  width:30%; /* Adjust the width as needed */
+  width:30%; 
   height: auto;
-  /* Maintain aspect ratio */
 }
 
 .nigeria {
   margin-top: 5%;
-  width: 100%; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%; 
+  height: auto; 
 }
 .text2{
   margin-top: 15%;
@@ -107,7 +104,49 @@
 }
 
 
+////table////////
+table{
 
+
+    width: 83%;
+  
+}
+th, td{
+
+    font-family: 'Poppins', sans-serif;
+    color: #6E7491;
+}
+
+.airline{
+    font-family: 'Paytone One', sans-serif;
+    color: #605DEC;
+
+}
+
+.head{
+
+    color: #605DEC;
+}
+.text3{
+    margin-top: 10%;
+    margin-left: 15.5%;
+    font-size: 24px;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #6E7491;
+  }
+
+.scrollable-table {
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-bottom: 15%;
+    height: 300px; 
+    overflow: auto;
+    
+  }
+
+  .scrollable-table tbody {
+    padding-top: 20px; /* Set the desired padding to show the first few rows */
+  }
 
 
 
