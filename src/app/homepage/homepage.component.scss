@@ -143,9 +143,9 @@ th, td{
     overflow: auto;
     
   }
-
+ b
   .scrollable-table tbody {
-    padding-top: 20px; /* Set the desired padding to show the first few rows */
+    padding-top: 20px; 
   }
 
 
@@ -191,4 +191,72 @@ th, td{
       }
   }
   
+/////others//////////
+.bodyText1 h1{
+  color: #6E7491;
+  font-weight: 900;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 2%;
+}
   
+.bodyText1 p{
+
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #6E7491;
+  text-align: justify;
+ 
+}
+
+.bodyText1{
+  text-align: justify;
+  width: 69%;
+  margin-top: 15%;
+  margin-left: 15%;
+}
+
+.bodyText2 h1{
+  color: #6E7491;
+  font-weight: 900;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 2%;
+}
+  
+.bodyText2 li{
+
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #6E7491;
+  text-align: justify;
+ 
+}
+
+.bodyText2{
+  text-align: justify;
+  width: 69%;
+  margin-top: 5%;
+  margin-left: 15%;
+}
+
+.bodyText3 h1{
+  color: #6E7491;
+  font-weight: 900;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 2%;
+}
+  
+.bodyText3 p{
+
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #6E7491;
+  text-align: justify;
+ 
+}
+
+.bodyText3{
+  text-align: justify;
+  width: 69%;
+  margin-top: 5%;
+  margin-left: 15%;
+}
