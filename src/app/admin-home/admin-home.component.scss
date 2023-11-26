@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+
+// * {
+//     padding: 0%;
+//     margin: 0%;
+//     box-sizing: border-box;
+//     font-family: 'Poppins', sans-serif;
+//     color: black;
+//   }
+
+.admin-landing-page,
+.header,
+.top-header {
+    transition: font-size 0.4s ease, margin-left 0.5s ease; /* Add transitions */
+}
+
+.admin-landing-page {
+    font-size: 2em; /* Adjust as needed */
+    margin-top: -50%;
+}
+
+.header {
+    font-family: 'Paytone One', sans-serif;
+    font-size: 3.5em; /* Adjust as needed */
+    text-align: right;
+    margin-right: 5%;
+    margin-top: -3%;
+    margin-left: -50%;
+    color: white;
+    line-height: 1;
+}
+
+.top-header {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em; 
+    text-align: right;
+    margin-right: 5%;
+    margin-left: -70%;
+    margin-bottom: 2.5%;
+    word-spacing: 0%;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .admin-landing-page {
+        font-size: 1.5em; 
+    }
+
+    .header {
+        font-size: 1.5em; /* Adjust as needed for smaller screens */
+        margin-left: -30%; /* Example adjustment */
+    }
+
+    .top-header {
+        font-size: 1em; /* Adjust as needed for smaller screens */
+        margin-left: -50%; /* Example adjustment */
+    }
+}
+
+.main-container {
+    display: flex;
+}
+
+.moon img{
+    margin-left: -35%;
+    margin-top: -25%;
+    height: 75%;
+    width: 75%;
+}
+
+.Plane img{
+    margin-left: -5%;
+    margin-top: -50%;
+    height: 50%;
+    width: 50%;
+}
+
+#view-dashboard {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin-right: 5%;
+}
+
+.custom-button {
+    background-color: #343a40; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.5s ease; 
+}
+
+.custom-button:hover {
+    background-color: white;
+    color: #605DEC;
+}
+
+#plane-down {
+    max-width: 8%;
+    max-height: 8%;
+    margin-right: 5%;
+}
+

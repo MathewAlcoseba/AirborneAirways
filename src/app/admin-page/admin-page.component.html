@@ -1,1 +1,161 @@
-<p>test Dashboard</p>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col">
+      <h1>Users</h1>
+    </div>
+    <div class="col-auto">
+      <button
+        type="button"
+        class="btn custom-button button-1 mr-2"
+        data-toggle="modal"
+        data-target="#addUserModal"
+      >
+        Add
+      </button>
+    </div>
+  </div>
+
+  <table class="table table-hover table-custom-style">
+    <thead class="">
+      <tr>
+        <th class="theader" scope="col">User ID</th>
+        <th class="theader" scope="col">Photo</th>
+        <th class="theader" scope="col">First Name</th>
+        <th class="theader" scope="col">Last Name</th>
+        <th class="theader" scope="col">Age</th>
+        <th class="theader" scope="col">Gender</th>
+        <th class="theader" scope="col">Date of Birth</th>
+        <th class="theader" scope="col">Contact No.</th>
+        <th class="theader" scope="col">Email</th>
+        <th class="theader" scope="col">Edit/Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userId }}</td>
+        <td class="photo-cell">
+          <img
+            src="{{ user.photo || 'assets/aytan.png' }}"
+            alt="User Photo"
+            class="photo-responsive"
+          />
+        </td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.age }}</td>
+        <td>{{ user.gender }}</td>
+        <td>{{ user.birthDate.toDate() | date : "yyyy-MM-dd" }}</td>
+        <td>{{ user.contactNumber }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn custom-button button-2"
+            (click)="deleteUser(user.userId)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- New User Form -->
+  <div class="row mt-3">
+    <div class="col">
+      <h2>Add New User</h2>
+      <form #addUserForm="ngForm" (ngSubmit)="addUser(addUserForm)">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              ngModel
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              name="lastName"
+              ngModel
+              required
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="age">Age</label>
+            <input
+              type="number"
+              class="form-control"
+              id="age"
+              name="age"
+              ngModel
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="gender">Gender</label>
+            <select
+              class="form-control"
+              id="gender"
+              name="gender"
+              ngModel
+              required
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="birthDate">Date of Birth: </label>
+          <ngb-datepicker
+            #dp
+            [(ngModel)]="birthDate"
+            name="birthDate"
+            [minDate]="{ year: 1970, month: 1, day: 1 }"
+            [maxDate]="{ year: currentYear, month: currentMonth, day: 31 }"
+          ></ngb-datepicker>
+        </div>
+        <div class="form-group">
+          <label for="contactNumber">Contact Number</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="contactNumber"
+            name="contactNumber"
+            ngModel
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            ngModel
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Add User</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="addUserForm.resetForm()"
+        >
+          Clear
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

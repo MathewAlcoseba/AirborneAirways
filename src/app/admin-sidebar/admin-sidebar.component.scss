@@ -1,29 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-* {
-  padding: 0%;
-  margin: 0%;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+// * {
+  // padding: 0%;
+  // margin: 0%;
+//   box-sizing: border-box;
+//   font-family: 'Poppins', sans-serif;
+// }
 
 .sidebar-header{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Paytone One', sans-serif;
     color: #605DEC;
     margin-left: 5%;
     margin-bottom: 5%;
     display: flex;
     align-items: center; 
+    white-space: nowrap;  
+    overflow: hidden;     
+    text-overflow: ellipsis;
+    
 }
 
 #sidebar {
+  padding: 0%;
+  margin: 0%;
   height: 100%;
   width: 20%;
   position: fixed;
   background-color: #343a40;
   padding-top: 20px;
   transition: width 0.4s ease;
+  font-family: 'Poppins', sans-serif;
+  z-index: 3;
 }
 
 #sidebar ul.components {
@@ -33,10 +41,13 @@
 #sidebar ul li {
   font-size: 16px;
   margin-bottom: 10px;
+  white-space: nowrap;  
+  overflow: hidden;     
+  text-overflow: ellipsis;
 }
 
 #sidebar a {
-  color: white;
+  color: 605DEC;
   padding: 10px;
   display: block;
   text-decoration: none;
@@ -50,26 +61,38 @@
 }
 
 #sidebar a:hover {
-  background-color: #605DEC;
-  color: #343a40;
+  background-color: #8fb9fd;
+  // color: #343a40;
+  color: white;
   font-weight: 500;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 #sidebar a:hover img {
   transform: scale(1.1); 
+  transition: transform 0.35s ease;
 }
 #sidebar ul li.selected a {
-  background-color: #8fb9fd;
+  // background-color: #8fb9fd;
+  background-color: #605DEC;
   transition: background-color 0.4s ease;
-  color: #343a40;
+  // color: #343a40;
+  color: white;
   font-weight: 700;
 }
 
 #content {
   margin-left: 20%;
-  padding: 15px;
+  padding: 25px;
   width: auto;
+  // background-color: #605DEC;
+  transition: margin-left 0.4s ease; 
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    margin-left: 6.4%;
+  }
+
 }
 
 .small-screen #sidebar {
@@ -98,4 +121,12 @@
 
 .small-screen-margin img {
   margin-left: 0;
+}
+
+.background-content {
+  background: linear-gradient(90deg, #605DEC, #312F94);
+  // height: 100vh;
+  height: 100%;
+  width: 100%;
+  
 }
