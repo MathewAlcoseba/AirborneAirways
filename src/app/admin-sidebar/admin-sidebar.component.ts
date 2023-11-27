@@ -22,6 +22,7 @@ export class AdminSidebarComponent implements OnInit {
   ngOnInit() {
     this.checkScreenSize();
     this.subscribeToRouterEvents();
+    this.updateSelectedItemBasedOnRoute();
   }
 
   checkScreenSize() {
@@ -45,27 +46,51 @@ export class AdminSidebarComponent implements OnInit {
   }
 
   private updateSelectedItemBasedOnRoute(): void {
-    const url = this.router.url;
-
-    switch (url) {
-      case '/admin-home':
-        this.selectedItem = 'home';
-        break;
-      case '/dashboard':
-        this.selectedItem = 'dashboard';
-        break;
-      case '/users':
-        this.selectedItem = 'users';
-        break;
-      case '/flights':
-        this.selectedItem = 'flights';
-        break;
-      case '/booked-flights':
-        this.selectedItem = 'booked-flights';
-        break;
-      default:
-        this.selectedItem = 'home';
-        break;
+    const currentRoute = this.route.root;
+    const child = this.getLastChild(currentRoute);
+  
+    if (child) {
+      const path = child.routeConfig?.path || '';
+  
+      switch (path) {
+        case 'admin-home':
+          this.selectedItem = 'home';
+          break;
+        case 'dashboard':
+          this.selectedItem = 'dashboard';
+          break;
+        case 'users':
+          this.selectedItem = 'users';
+          break;
+        case 'flights':
+          this.selectedItem = 'flights';
+          break;
+        case 'booked-flights':
+          this.selectedItem = 'booked-flights';
+          break;
+        default:
+          this.selectedItem = 'home';
+          break;
+      }
     }
   }
+  logout(): void {
+    // Perform logout actions, e.g., clear user authentication, navigate to home page
+    // For demonstration purposes, let's assume you have an AuthService with a logout method
+    // Replace 'AuthService' with your actual authentication service
+    // this.authService.logout();
+
+    // After logout, navigate to the home page
+    this.router.navigate(['/']);
+  }
+  
+  private getLastChild(route: ActivatedRoute): ActivatedRoute | null {
+    let currentRoute: ActivatedRoute | null = route;
+    while (currentRoute.firstChild) {
+      currentRoute = currentRoute.firstChild;
+    }
+    return currentRoute;
+  }
+  
+  
 }

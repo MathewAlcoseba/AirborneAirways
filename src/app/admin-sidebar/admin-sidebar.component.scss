@@ -47,7 +47,7 @@
 }
 
 #sidebar a {
-  color: 605DEC;
+  color: #605DEC;
   padding: 10px;
   display: block;
   text-decoration: none;
@@ -94,7 +94,9 @@
   }
 
 }
-
+#sidebar ul li a#logoutButton {
+  cursor: pointer;
+}
 .small-screen #sidebar {
   width: 50px;
 }

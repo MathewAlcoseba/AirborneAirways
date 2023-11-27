@@ -6,7 +6,7 @@
     </div>
     <ul class="list-unstyled components">
       <li [ngClass]="{ selected: selectedItem === 'home' }">
-        <a routerLink="/admin-home" (click)="selectItem('home')">
+        <a routerLink="/admin-sidebar/admin-home" (click)="selectItem('home')">
           <img
             [src]="
               selectedItem === 'home'
@@ -21,7 +21,10 @@
         </a>
       </li>
       <li [ngClass]="{ selected: selectedItem === 'dashboard' }">
-        <a routerLink="/dashboard" (click)="selectItem('dashboard')">
+        <a
+          routerLink="/admin-sidebar/dashboard"
+          (click)="selectItem('dashboard')"
+        >
           <img
             [src]="
               selectedItem === 'dashboard'
@@ -36,7 +39,7 @@
         </a>
       </li>
       <li [ngClass]="{ selected: selectedItem === 'users' }">
-        <a routerLink="/users" (click)="selectItem('users')">
+        <a routerLink="/admin-sidebar/users" (click)="selectItem('users')">
           <img
             [src]="
               selectedItem === 'users'
@@ -51,7 +54,7 @@
         </a>
       </li>
       <li [ngClass]="{ selected: selectedItem === 'flights' }">
-        <a routerLink="/flights" (click)="selectItem('flights')">
+        <a routerLink="/admin-sidebar/flights" (click)="selectItem('flights')">
           <img
             [src]="
               selectedItem === 'flights'
@@ -66,7 +69,10 @@
         </a>
       </li>
       <li [ngClass]="{ selected: selectedItem === 'booked-flights' }">
-        <a routerLink="/booked-flights" (click)="selectItem('booked-flights')">
+        <a
+          routerLink="/admin-sidebar/booked-flights"
+          (click)="selectItem('booked-flights')"
+        >
           <img
             [src]="
               selectedItem === 'booked-flights'
@@ -78,6 +84,16 @@
             [ngClass]="{ 'small-screen-margin': isSmallScreen }"
           />
           <span *ngIf="!isSmallScreen">Booked Flights</span>
+        </a>
+      </li>
+      <li>
+        <a id="logoutButton" (click)="logout()">
+          <img
+            src="assets/admin-logout.png"
+            id="logoutIcon"
+            style="margin-right: 7px"
+          />
+          <span *ngIf="!isSmallScreen">Logout</span>
         </a>
       </li>
     </ul>
