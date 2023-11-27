@@ -9,12 +9,26 @@
   }
   
   .nav-link {
+    display: inline;
+       vertical-align: middle;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     color: #605DEC;
     margin-right: 15%;
   }
-  
+  .bi {
+    vertical-align: middle; // Same for the icon
+}
+.icon-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bi {
+  margin-right: 5px; // Add some space between icon and text
+}
+
   .navbar-nav {
     margin-left: 50%; 
     margin-top: 1%;
@@ -28,10 +42,7 @@
     text-decoration: none;
   }
   
-//   .userIcon {
-//     margin-top: 1%;
-//     margin-left: 8.5%;
-//   }
+
   
   .navbar {
     background-color: white;
