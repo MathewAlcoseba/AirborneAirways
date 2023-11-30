@@ -69,21 +69,33 @@
     justify-content: space-between;
     padding: 20px; 
   }
-
-  .input-container {
+  .input-container1,  .input-container2 {
     width: 25%;
-    margin-right: 10px;
     font-family: 'poppins', sans-serif;
-    color:#919191 ;
+    color:#919191;
   }
 
+  .input-container2 {
+    margin-left: 70px;
+  }
+  .input-container1 {
+    margin-left: 20px;
+  }
+  .icon-text {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon-text i {
+    margin-right: 5px; /* Adjust the margin between the icon and text */
+  }
+  
  
-
 
   input, select {
     width: 100%;
-    padding-top: 5.5%;
-    padding-bottom: 5.5%;
+    padding-top: 8%;
+    padding-bottom: 8%;
     padding-left: 15px;
     box-sizing: border-box;
     margin-top: 0.1%;
@@ -99,14 +111,13 @@
     align-items: center;
     border: 2px solid #919191; 
     border-radius: 5px;
-    // width: 80%;
+    
   }
 
 
   input[type="date"] {
     color: #919191;
-    width: 200%;
-    
+    width: 150%;
     font-size: 12px;
     border: none;
   }
@@ -118,12 +129,12 @@
     color: #919191;
     cursor: pointer;
   }
-  
-  #datepicker2{
-    padding-right: 2px; 
-    margin-left: 80%;
-  }
 
+  #arrow{
+
+    font-size: 48px;
+    font-weight: bolder;
+  }
   button {
     background-color: #605DEC;
     color: white;
