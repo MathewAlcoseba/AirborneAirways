@@ -46,4 +46,6 @@ export class AuthService {
       .collection('users', (ref) => ref.where('email', '==', email))
       .valueChanges();
   }
+
+  
 }
