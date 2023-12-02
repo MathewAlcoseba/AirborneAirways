@@ -2,8 +2,9 @@
 
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+// import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service'; 
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
-    private angularAuth: AngularFireAuth,
+    private authService: AuthService,
     private router: Router
   ) {
     this.createForm();
@@ -31,23 +32,22 @@ export class LoginComponent {
   loginUser() {
     const { email, password } = this.loginForm.value;
 
-    // console.log('Email:', email);
-    // console.log('Password:', password);
-
     if (email === 'admin' && password === 'password') {
+      // Simulate an admin login
+      this.authService.login({ isAdmin: true });
       console.log('Navigating to /admin-sidebar');
       this.router.navigate(['/admin-sidebar']);
     } else if (this.loginForm.valid) {
-      this.angularAuth
-        .signInWithEmailAndPassword(email, password)
-        .then(() => {
-          console.log('Login successful!');
+      // Fetch user info from the backend (Firestore)
+      this.authService.getUserByEmail(email).subscribe((users: any[]) => {
+        if (users.length > 0) {
+          const userInfo = users[0];
+          this.authService.login(userInfo);
           this.router.navigate(['/']);
-        })
-        .catch((error) => {
-          console.error('Error during login:', error);
-          alert('Invalid email or password. Please try again.');
-        });
+        } else {
+          alert('User not found. Please register first.');
+        }
+      });
     } else {
       alert('Invalid email or password. Please try again.');
     }

@@ -21,8 +21,9 @@ import { AdminUserTableComponent } from './admin-user-table/admin-user-table.com
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { BookingComponent } from './booking/booking.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsModule
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdminFlightsTableComponent } from './admin-flights-table/admin-flights-table.component'; // Import ReactiveFormsModule
+import { AuthService } from './auth.service';
 
 
 
@@ -44,16 +45,17 @@ import { ReactiveFormsModule } from '@angular/forms'; // Import ReactiveFormsMod
     FooterComponent,
     AdminUserTableComponent,
     BookingComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdminFlightsTableComponent
     
   ],
   imports: [
     BrowserModule, FormsModule, BrowserAnimationsModule, RouterModule, AppRoutingModule,AngularFireModule.initializeApp({"projectId":"airborne-ars","appId":"1:740554870522:web:75b96ee9cfde464d058343","storageBucket":"airborne-ars.appspot.com","apiKey":"AIzaSyDko9IxaQq7TZZcNJ3TAY7tVvB9RgNKugg","authDomain":"airborne-ars.firebaseapp.com","messagingSenderId":"740554870522"}),
     AngularFirestoreModule, provideFirebaseApp(() => initializeApp({"projectId":"airborne-ars","appId":"1:740554870522:web:75b96ee9cfde464d058343","storageBucket":"airborne-ars.appspot.com","apiKey":"AIzaSyDko9IxaQq7TZZcNJ3TAY7tVvB9RgNKugg","authDomain":"airborne-ars.firebaseapp.com","messagingSenderId":"740554870522"})), provideFirestore(() => getFirestore()), NgbModule,
-    AngularFireAuthModule, ReactiveFormsModule
+    AngularFireAuthModule, ReactiveFormsModule, 
   ],
   // RouterModule.forRoot(routes)
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
