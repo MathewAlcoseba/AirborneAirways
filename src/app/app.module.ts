@@ -19,6 +19,9 @@ import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminUserTableComponent } from './admin-user-table/admin-user-table.component';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { BookingComponent } from './booking/booking.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 
 
@@ -38,7 +41,9 @@ import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/aut
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    AdminUserTableComponent
+    AdminUserTableComponent,
+    BookingComponent,
+    NavbarComponent
     
   ],
   imports: [
