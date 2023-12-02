@@ -1,1 +1,109 @@
-<p>admin-user-table works!</p>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col">
+      <h1>Users</h1>
+    </div>
+    <div class="col-auto">
+      <button
+        type="button"
+        class="btn custom-button button-1 mr-2"
+        data-toggle="modal"
+        data-target="#addUserModal"
+      >
+        Add
+      </button>
+    </div>
+  </div>
+
+  <table class="table table-hover table-custom-style">
+    <thead>
+      <tr>
+        <th class="theader" scope="col">User ID</th>
+        <th class="theader" scope="col">First Name</th>
+        <th class="theader" scope="col">Last Name</th>
+        <th class="theader" scope="col">Email</th>
+        <th class="theader" scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userId }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn custom-button button-2"
+            (click)="deleteUser(user.userId)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- New User Form -->
+  <div class="row mt-3">
+    <div class="col">
+      <h2>Add New User</h2>
+      <form #addUserForm="ngForm" (ngSubmit)="addUser(addUserForm)">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              name="firstName"
+              ngModel
+              required
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              name="lastName"
+              ngModel
+              required
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            ngModel
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            ngModel
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Add User</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="addUserForm.resetForm()"
+        >
+          Clear
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,47 +1,144 @@
+<!-- register.component.html -->
+
 <div class="container">
-    <div class="row justify-content-center align-items-center" style="height:100vh;">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title text-center">Airborne Airways</h3>
-                    <h1 class="welcome">Welcome!</h1>
-                    <h2 class="register">Register</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="username"><i class="bi bi-person-fill"></i>First Name:</label>
-                            <input type="text" class="form-control" id="firstname" placeholder="enter first name">
-                        </div>
-                        <div class="form-group">
-                            <label for="username"><i class="bi bi-person-fill"></i>Last Name:</label>
-                            <input type="text" class="form-control" id="lastname" placeholder="enter last name">
-                        </div>
-                        <div class="form-group">
-                            
-                            <label for="email"><i class="bi bi-envelope"></i>Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="password"><i class="bi bi-lock"></i>Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="enter password">
-                        </div>
-                        <div class="form-group">
-                            <label for="password2"><i class="bi bi-lock"></i>Confirm Password</label>
-                            <input type="password" class="form-control" id="password2" placeholder="enter password" >
-                        </div>
-                        <p class="loginLink">Already have an account? <a class="link-offset-2 link-underline link-underline-opacity-100"  routerLink="/login">Login here</a></p>
-             
-
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
-                    </form>
-                    <img src="assets/headline.png" alt="" class="headline-image">
-                    <img src="assets/airport.png" alt="" class="background-image">
-
-                </div>
+  <div
+    class="row justify-content-center align-items-center"
+    style="height: 100vh"
+  >
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center">Airborne Airways</h3>
+          <h1 class="welcome">Welcome!</h1>
+          <h2 class="register">Register</h2>
+          <form (ngSubmit)="registerUser()" [formGroup]="registerForm">
+            <div class="form-group">
+              <div
+                *ngIf="registerForm.get('firstname')?.hasError('required')"
+                class="text-danger"
+              >
+                First name is required.
+              </div>
+              <label for="username"
+                ><i class="bi bi-person-fill"></i>First Name:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                placeholder="Enter first name"
+                formControlName="firstname"
+              />
             </div>
+            <div class="form-group">
+              <div
+                *ngIf="registerForm.get('lastname')?.hasError('required')"
+                class="text-danger"
+              >
+                Last name is required.
+              </div>
+              <label for="username"
+                ><i class="bi bi-person-fill"></i>Last Name:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="lastname"
+                placeholder="Enter last name"
+                formControlName="lastname"
+              />
+            </div>
+            <div class="form-group">
+              <div
+                *ngIf="registerForm.get('email')?.hasError('required')"
+                class="text-danger"
+              >
+                Email is required.
+              </div>
+              <div
+                *ngIf="registerForm.get('email')?.hasError('email')"
+                class="text-danger"
+              >
+                Please enter a valid email address.
+              </div>
+              <label for="email"><i class="bi bi-envelope"></i>Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter email"
+                formControlName="email"
+              />
+            </div>
+            <div class="form-group">
+              <div
+                *ngIf="registerForm.get('password')?.hasError('required')"
+                class="text-danger"
+              >
+                Password is required.
+              </div>
+              <div
+                *ngIf="registerForm.get('password')?.hasError('minlength')"
+                class="text-danger"
+              >
+                Password must be at least
+                {{
+                  registerForm.get("password")?.getError("minlength")
+                    ?.requiredLength
+                }}
+                characters.
+              </div>
+              <label for="password"><i class="bi bi-lock"></i>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Enter password"
+                formControlName="password"
+              />
+            </div>
+            <div class="form-group">
+              <div
+                *ngIf="registerForm.get('password2')?.hasError('required')"
+                class="text-danger"
+              >
+                Confirmation password is required.
+              </div>
+              <label for="password2"
+                ><i class="bi bi-lock"></i>Confirm Password</label
+              >
+              <input
+                type="password"
+                class="form-control"
+                id="password2"
+                placeholder="Confirm password"
+                formControlName="password2"
+              />
+            </div>
+            <p class="loginLink">
+              Already have an account?
+              <a
+                class="link-offset-2 link-underline link-underline-opacity-100"
+                routerLink="/login"
+                >Login here</a
+              >
+            </p>
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              [disabled]="registerForm.invalid"
+            >
+              Register
+            </button>
+          </form>
+          <img src="assets/headline.png" alt="" class="headline-image" />
+          <img src="assets/airport.png" alt="" class="background-image" />
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
