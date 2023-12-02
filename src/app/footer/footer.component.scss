@@ -1,0 +1,32 @@
+#Title{
+    font-family: 'Paytone One', sans-serif;
+    color: #605DEC;
+}
+
+div, .col{
+
+    color: #7C8DB0;
+}
+
+
+    p, a {
+        color: #7C8DB0 ;
+        font-family: 'Poppins', sans-serif;
+       
+    }
+
+.my-5{
+
+    padding-top: 10%;
+}
+
+.container.my-5 {
+    width: 100%;        // Ensures the container takes full width of the screen
+    max-width: 100%; // Sets the maximum width to be equal to the viewport width
+    margin: auto;       // Centers the container if it's smaller than the viewport
+  }
+  
+  .custom-gap {
+    margin-right: 50px; 
+   
+}

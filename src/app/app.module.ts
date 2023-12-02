@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -33,7 +34,8 @@ import { RegisterComponent } from './register/register.component';
     AdminHomeComponent,
     AdminSidebarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent
     
   ],
   imports: [
