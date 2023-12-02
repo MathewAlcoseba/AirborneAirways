@@ -1,95 +1,101 @@
 import { Component, OnDestroy } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore'
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
-// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';  
 
 interface User {
   userId: string;
-  photo: string;
   firstName: string;
   lastName: string;
-  age: number;
-  gender: string;
-  birthDate: any; 
-  contactNumber: string;
   email: string;
 }
-
 
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',
-  styleUrls: ['./admin-page.component.scss']
+  styleUrls: ['./admin-page.component.scss'],
 })
-
 export class AdminPageComponent implements OnDestroy {
-  currentYear: number;
-  currentMonth: number;
-
   private ngUnsubscribe = new Subject<void>();
   users: User[] = [];
-  birthDate: NgbDateStruct | null = null;
 
-  constructor(private angularFirestore: AngularFirestore, private calendar: NgbCalendar) {
+  constructor(private angularFirestore: AngularFirestore, private angularAuth: AngularFireAuth) {
     this.getDataFromFirestore();
-    const today = this.calendar.getToday();
-    this.currentYear = today.year;
-    this.currentMonth = today.month;
   }
 
   getDataFromFirestore() {
-    this.angularFirestore.collection<User>('users')
+    this.angularFirestore
+      .collection<User>('users')
       .valueChanges()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((users: User[]) => {
         this.users = users;
       });
   }
-  
 
   addUser(formData: any) {
     const userId = this.angularFirestore.createId();
-
     const userData: User = {
       userId,
-      photo: '', //sample ra
       firstName: formData.value.firstName,
       lastName: formData.value.lastName,
-      age: formData.value.age,
-      gender: formData.value.gender,
-      birthDate: new Date(formData.value.birthDate.year, formData.value.birthDate.month - 1, formData.value.birthDate.day),
-      contactNumber: formData.value.contactNumber,
-      email: formData.value.email
+      email: formData.value.email,
     };
 
-    this.angularFirestore.collection('users').doc(userId).set(userData)
-      .then(() => {
-        console.log(`User with ID ${userId} added successfully.`);
-        formData.resetForm();
+    const password = formData.value.password;
+
+    this.angularAuth
+      .createUserWithEmailAndPassword(userData.email, password)
+      .then((authResult) => {
+        this.angularFirestore
+          .collection('users')
+          .doc(userId)
+          .set(userData)
+          .then(() => {
+            alert(`User with ID ${userId} added successfully.`);
+            formData.resetForm();
+          })
+          .catch((error) => {
+            alert(`Failed to add user`);
+            console.error('Error adding user:', error);
+          });
       })
       .catch((error) => {
-        console.error('Error adding user:', error);
+        console.error('Error creating user in authentication:', error);
       });
   }
 
   deleteUser(userId: string) {
-    const userDocRef = this.angularFirestore.collection('users').doc(userId);
-
-    userDocRef.delete()
+    // Step 1: Delete from Firebase Authentication
+    this.angularAuth.currentUser
+      .then((user) => {
+        if (user) {
+          return user.delete();
+        } else {
+          console.error('User not found in Firebase Authentication.');
+          return Promise.reject('User not found in Firebase Authentication.');
+        }
+      })
       .then(() => {
-        console.log(`User with ID ${userId} deleted successfully.`);
+        // Step 2: Delete from Firestore
+        const userDocRef = this.angularFirestore.collection('users').doc(userId);
+  
+        return userDocRef.delete();
+      })
+      .then(() => {
+        alert(`User with ID ${userId} deleted successfully.`);
       })
       .catch((error) => {
         console.error(`Error deleting user with ID ${userId}: `, error);
+        alert(`Failed to delete user`);
       });
   }
+  
 
   ngOnDestroy() {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
-
-  
 }
