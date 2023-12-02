@@ -47,3 +47,14 @@
   .navbar {
     background-color: white;
   }
+/* navbar.component.scss */
+
+.user-profile-dropdown {
+  position: relative;
+}
+
+.user-profile-dropdown .dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 100%; /* Adjust the top position to align with the nav-link */
+}
