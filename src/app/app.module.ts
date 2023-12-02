@@ -17,6 +17,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
+import { BookingComponent } from './booking/booking.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 
 
@@ -35,7 +38,9 @@ import { FooterComponent } from './footer/footer.component';
     AdminSidebarComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    BookingComponent,
+    NavbarComponent
     
   ],
   imports: [

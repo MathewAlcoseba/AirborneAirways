@@ -1,0 +1,47 @@
+<div class="whiteborder">
+  <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+  <label class="btn btn-secondary" for="option1">Checked</label>
+  
+  <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+  <label class="btn btn-secondary" for="option2">Radio</label>
+  
+  <div class="input-container">
+    <input type="text" placeholder="Enter Departure" [(ngModel)]="departureSearchQuery" (input)="filterDepartureCountries()"/>
+    <div class="dropdown-container" *ngIf="departureSearchQuery">
+      <ul class="dropdown-list">
+        <li *ngFor="let country of filteredDepartureCountries" (click)="selectDepartureCountry(country)">
+          {{ country }}
+        </li>
+      </ul>
+    </div>
+  </div>
+    
+  <img src="assets/swap.png" alt="">
+
+  <!-- Destination Input Field -->
+  <div class="input-container">
+    <input type="text" placeholder="Enter Destination" [(ngModel)]="destinationSearchQuery" (input)="filterDestinationCountries()"/>
+    <div class="dropdown-container" *ngIf="destinationSearchQuery">
+      <ul class="dropdown-list">
+        <li *ngFor="let country of filteredDestinationCountries" (click)="selectDestinationCountry(country)">
+          {{ country }}
+        </li>
+      </ul>
+    </div>
+  </div>
+    
+    
+  
+    <div class="datecontainer">
+      <div class="input-container1">
+        <input type="date" id="datepicker">
+      </div>
+    
+      <div class="input-container2">
+        <input type="date" id="datepicker2">
+      </div>
+    </div>
+  
+    <button onclick="bookFlight()">Book Flight</button>
+  </div>
+  
