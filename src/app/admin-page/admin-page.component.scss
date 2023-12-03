@@ -2,23 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
-// *{
-//   padding: 0%;
-//   margin: 0%;
-//   box-sizing: border-box;
-//   font-family: 'Poppins', sans-serif;
-// }
-.table-custom-style {
-  border-radius: 10px; 
-  overflow: hidden; 
-}
-
-.theader {
-    background-color: #8fb9fd; 
-    color: white; 
-    font-weight: bold; 
-}
-
 .container {
   border-radius: 20px;
   background-color: white;
@@ -27,45 +10,3 @@
 }
 
 
-
-.button-1 {
-  background-color: transparent;
-  border: 2px solid #8fb9fd;
-  color: #605DEC;
-  border-radius: 10px;
-  padding: 5px 10px; 
-  margin-right: 11px;
-}
-
-.button-1:hover {
-  background-color: #605DEC;
-  color: white;
-}
-
-.button-2 {
-  background-color: transparent;
-  border: 2px solid #FFA3A3;
-  color: #605DEC;
-  border-radius: 10px; // Adjust as needed
-  padding: 5px 10px; // Adjust as needed
-  margin-right: 11px;
-}
-
-.button-2:hover {
-  background-color: #fc5858;
-  color: white;
-}
-
-.photo-cell {
-  width: 25px; /* Adjust the width as needed */
-  height: 25px; /* Adjust the height as needed */
-  overflow: hidden;
-  border-radius: 50%; /* For a circular shape, adjust as needed */
-}
-
-.photo-responsive {
-  width: 75%;
-  height: auto;
-  max-width: 80%;
-  border-radius: 50%; 
-}
