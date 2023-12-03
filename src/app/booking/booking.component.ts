@@ -64,6 +64,8 @@ export class BookingComponent implements OnInit {
   // destinationSearchQuery: string = '';
   selectedTripType: string = 'Round-Trip';
 
+
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -153,9 +155,11 @@ export class BookingComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
-
   onSelectTripType(option: string): void {
     this.selectedTripType = option;
   }
   
+  
 }
+  
+
