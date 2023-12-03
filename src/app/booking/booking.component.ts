@@ -143,12 +143,9 @@ export class BookingComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
-<<<<<<< HEAD
 
   
 
-=======
->>>>>>> d0c6148641d4bce0a48ce20846032c040122a26c
   onSelectTripType(option: string): void {
     this.selectedTripType = option;
     this.isRoundTripSelected = option === 'Round-trip';
@@ -156,9 +153,4 @@ export class BookingComponent implements OnInit {
   
   
 }
-<<<<<<< HEAD
   
-=======
-  
-
->>>>>>> d0c6148641d4bce0a48ce20846032c040122a26c
