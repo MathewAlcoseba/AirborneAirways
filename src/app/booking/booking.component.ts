@@ -48,6 +48,9 @@ export class BookingComponent implements OnInit {
   departureSearchQuery: string = '';
   destinationSearchQuery: string = '';
 
+  selectedTripType: string = 'Round-Trip';
+
+
   constructor() { }
 
   ngOnInit(): void {
@@ -79,5 +82,9 @@ export class BookingComponent implements OnInit {
     this.selectedDestinationCountry = country;
     this.destinationSearchQuery = country;
     this.filteredDestinationCountries = [];
+  }
+
+  onSelectTripType(option: string): void {
+    this.selectedTripType = option;
   }
 }

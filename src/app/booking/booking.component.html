@@ -1,25 +1,31 @@
 <div class="whiteborder">
-  <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
-  <label class="btn btn-secondary" for="option1">Checked</label>
-  
-  <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-  <label class="btn btn-secondary" for="option2">Radio</label>
-  
-  <div class="input-container">
-    <input type="text" placeholder="Enter Departure" [(ngModel)]="departureSearchQuery" (input)="filterDepartureCountries()"/>
-    <div class="dropdown-container" *ngIf="departureSearchQuery">
-      <ul class="dropdown-list">
-        <li *ngFor="let country of filteredDepartureCountries" (click)="selectDepartureCountry(country)">
-          {{ country }}
-        </li>
+  <div class="flex-container">
+    <div class="dropdown-center">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ selectedTripType }}
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#" (click)="onSelectTripType('Round-trip')">Round-trip</a></li>
+        <li><a class="dropdown-item" href="#" (click)="onSelectTripType('One Way')">One Way</a></li>
       </ul>
     </div>
+
+
+    <div class="input-container3">
+      <input type="text" placeholder="Enter Departure" [(ngModel)]="departureSearchQuery" (input)="filterDepartureCountries()"/>
+      <div class="dropdown-container" *ngIf="departureSearchQuery">
+        <ul class="dropdown-list">
+          <li *ngFor="let country of filteredDepartureCountries" (click)="selectDepartureCountry(country)">
+            {{ country }}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-    
+
   <img src="assets/swap.png" alt="">
 
-  <!-- Destination Input Field -->
-  <div class="input-container">
+  <div class="input-container4">
     <input type="text" placeholder="Enter Destination" [(ngModel)]="destinationSearchQuery" (input)="filterDestinationCountries()"/>
     <div class="dropdown-container" *ngIf="destinationSearchQuery">
       <ul class="dropdown-list">
@@ -38,7 +44,7 @@
       </div>
     
       <div class="input-container2">
-        <input type="date" id="datepicker2">
+        <input type="date" id="datepicker2" [disabled]="selectedTripType === 'One Way'">
       </div>
     </div>
   
