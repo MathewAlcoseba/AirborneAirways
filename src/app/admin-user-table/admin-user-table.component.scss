@@ -56,6 +56,19 @@
   color: white;
 }
 
+.button-3 {
+  background-color: transparent;
+  border: 2px solid #040b74;
+  color: #605DEC;
+  border-radius: 10px; // Adjust as needed
+  padding: 5px 10px; // Adjust as needed
+  margin-right: 11px;
+}
+
+.button-3:hover {
+  background-color: #040b74;
+  color: white;
+}
 .photo-cell {
   width: 25px; /* Adjust the width as needed */
   height: 25px; /* Adjust the height as needed */
@@ -68,4 +81,27 @@
   height: auto;
   max-width: 80%;
   border-radius: 50%; 
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.form-group {
+  width: 48%; // Adjust as needed
+}
+
+.btn {
+  margin-right: 11px;
+  
+}
+
+h2 {
+  color: white;
+}
+
+.buttons {
+  margin-top: 1%;
 }

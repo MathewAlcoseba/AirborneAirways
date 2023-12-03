@@ -1,3 +1,70 @@
+<!-- New User Form -->
+<div class="row mb-3">
+  <div class="col">
+    <h2>Add New User</h2>
+    <form #addUserForm="ngForm" (ngSubmit)="addUser(addUserForm)">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            name="firstName"
+            ngModel
+            required
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            name="lastName"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            ngModel
+            required
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            ngModel
+            required
+          />
+        </div>
+      </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-primary">Add User</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="addUserForm.resetForm()"
+        >
+          Clear
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <div class="container">
   <div class="row mb-3">
     <div class="col">
@@ -32,6 +99,9 @@
         <td>{{ user.lastName }}</td>
         <td>{{ user.email }}</td>
         <td>
+          <button type="button" class="btn custom-button button-3">
+            View Flights
+          </button>
           <button
             type="button"
             class="btn custom-button button-2"
@@ -43,67 +113,4 @@
       </tr>
     </tbody>
   </table>
-
-  <!-- New User Form -->
-  <div class="row mt-3">
-    <div class="col">
-      <h2>Add New User</h2>
-      <form #addUserForm="ngForm" (ngSubmit)="addUser(addUserForm)">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="firstName">First Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="firstName"
-              name="firstName"
-              ngModel
-              required
-            />
-          </div>
-          <div class="form-group col-md-6">
-            <label for="lastName">Last Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="lastName"
-              name="lastName"
-              ngModel
-              required
-            />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            ngModel
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            name="password"
-            ngModel
-            required
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Add User</button>
-        <button
-          type="button"
-          class="btn btn-secondary"
-          (click)="addUserForm.resetForm()"
-        >
-          Clear
-        </button>
-      </form>
-    </div>
-  </div>
 </div>

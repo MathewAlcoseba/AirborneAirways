@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row mb-3">
+    <div class="col">
+      <h1>Booked Flights</h1>
+    </div>
+  </div>
+
+  <table class="table table-hover table-custom-style">
+    <thead>
+      <tr>
+        <th class="theader" scope="col">Flight ID</th>
+        <th class="theader" scope="col">Flight Type</th>
+        <th class="theader" scope="col">Origin</th>
+        <th class="theader" scope="col">Destination</th>
+        <th class="theader" scope="col">Departure Date</th>
+        <th class="theader" scope="col">Return Date</th>
+        <th class="theader" scope="col">Ticket Price</th>
+        <th class="theader" scope="col">User ID</th>
+        <th class="theader" scope="col">Full Name</th>
+        <th class="theader" scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bookedFlight of bookedFlights">
+        <td>{{ bookedFlight.flightId }}</td>
+        <td>{{ bookedFlight.flightType }}</td>
+        <td>{{ bookedFlight.origin }}</td>
+        <td>{{ bookedFlight.destination }}</td>
+        <td>{{ bookedFlight.departureDate }}</td>
+        <td>{{ bookedFlight.returnDate || "" }}</td>
+        <td>₱{{ bookedFlight.ticketPrice.toFixed(2) }}</td>
+        <td>{{ bookedFlight.userId }}</td>
+        <td>{{ bookedFlight.fullName }}</td>
+        <td>{{ bookedFlight.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

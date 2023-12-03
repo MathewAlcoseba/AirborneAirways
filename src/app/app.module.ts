@@ -24,6 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminFlightsTableComponent } from './admin-flights-table/admin-flights-table.component'; // Import ReactiveFormsModule
 import { AuthService } from './auth.service';
+import { AdminBookedFlightsComponent } from './admin-booked-flights/admin-booked-flights.component';
 
 
 
@@ -46,7 +47,8 @@ import { AuthService } from './auth.service';
     AdminUserTableComponent,
     BookingComponent,
     NavbarComponent,
-    AdminFlightsTableComponent
+    AdminFlightsTableComponent,
+    AdminBookedFlightsComponent
     
   ],
   imports: [

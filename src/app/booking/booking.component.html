@@ -79,7 +79,7 @@
       <input
         type="date"
         id="datepicker2"
-        [disabled]="selectedTripType === 'One Way'"
+        [disabled]="!isRoundTripSelected"
         [(ngModel)]="returnDate"
       />
     </div>
