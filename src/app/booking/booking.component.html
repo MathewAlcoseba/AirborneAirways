@@ -1,47 +1,84 @@
 <div class="whiteborder">
-  <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
-  <label class="btn btn-secondary" for="option1">Checked</label>
-  
-  <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-  <label class="btn btn-secondary" for="option2">Radio</label>
-  
+  <input
+    type="radio"
+    class="btn-check"
+    name="options"
+    id="option1"
+    autocomplete="off"
+    checked
+    (change)="onRadioChange('One-way')"
+  />
+  <label class="btn btn-secondary" for="option1">One-way</label>
+
+  <input
+    type="radio"
+    class="btn-check"
+    name="options"
+    id="option2"
+    autocomplete="off"
+    (change)="onRadioChange('Round-trip')"
+  />
+  <label class="btn btn-secondary" for="option2">Round-trip</label>
+
+  <!-- Departure Input Field -->
   <div class="input-container">
-    <input type="text" placeholder="Enter Departure" [(ngModel)]="departureSearchQuery" (input)="filterDepartureCountries()"/>
-    <div class="dropdown-container" *ngIf="departureSearchQuery">
+    <input
+      type="text"
+      placeholder="Enter Departure"
+      [(ngModel)]="selectedDepartureCountry"
+      (input)="filterDepartureCountries()"
+    />
+    <div class="dropdown-container" *ngIf="selectedDepartureCountry">
       <ul class="dropdown-list">
-        <li *ngFor="let country of filteredDepartureCountries" (click)="selectDepartureCountry(country)">
-          {{ country }}
+        <li
+          *ngFor="let origin of originOptions"
+          (click)="selectDepartureCountry(origin)"
+        >
+          {{ origin }}
         </li>
       </ul>
     </div>
   </div>
-    
-  <img src="assets/swap.png" alt="">
+
+  <img src="assets/swap.png" alt="" />
 
   <!-- Destination Input Field -->
   <div class="input-container">
-    <input type="text" placeholder="Enter Destination" [(ngModel)]="destinationSearchQuery" (input)="filterDestinationCountries()"/>
-    <div class="dropdown-container" *ngIf="destinationSearchQuery">
+    <input
+      type="text"
+      placeholder="Enter Destination"
+      [(ngModel)]="selectedDestinationCountry"
+      (input)="filterDestinationCountries()"
+    />
+    <div
+      class="dropdown-container"
+      *ngIf="selectedDepartureCountry && selectedDestinationCountry"
+    >
       <ul class="dropdown-list">
-        <li *ngFor="let country of filteredDestinationCountries" (click)="selectDestinationCountry(country)">
-          {{ country }}
+        <li
+          *ngFor="let destination of destinationOptions"
+          (click)="selectDestinationCountry(destination)"
+        >
+          {{ destination }}
         </li>
       </ul>
     </div>
   </div>
-    
-    
-  
-    <div class="datecontainer">
-      <div class="input-container1">
-        <input type="date" id="datepicker">
-      </div>
-    
-      <div class="input-container2">
-        <input type="date" id="datepicker2">
-      </div>
+
+  <div class="datecontainer">
+    <div class="input-container1">
+      <input type="date" id="datepicker" />
     </div>
-  
-    <button onclick="bookFlight()">Book Flight</button>
+
+    <div class="input-container2">
+      <input
+        type="date"
+        id="datepicker2"
+        [disabled]="!isRoundTripSelected"
+        [style.color]="isRoundTripSelected ? '#919191' : '#ffffff'"
+      />
+    </div>
   </div>
-  
+
+  <button (click)="bookFlight()">Book Flight</button>
+</div>
