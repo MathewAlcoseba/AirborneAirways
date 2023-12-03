@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
+import { AdminUserTableComponent } from './admin-user-table/admin-user-table.component';
+import { AdminFlightsTableComponent } from './admin-flights-table/admin-flights-table.component';
 
 const routes: Routes = [
 
@@ -18,6 +20,8 @@ const routes: Routes = [
       { path: 'admin-home', component: AdminHomeComponent },
       { path: 'dashboard', component: AdminPageComponent },
       { path: '', component: AdminHomeComponent },
+      { path: 'users', component: AdminUserTableComponent },
+      { path: 'flights', component: AdminFlightsTableComponent },
     ]
   },
   { path:'', component: HomepageComponent},

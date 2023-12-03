@@ -13,11 +13,11 @@ interface User {
 }
 
 @Component({
-  selector: 'app-admin-page',
-  templateUrl: './admin-page.component.html',
-  styleUrls: ['./admin-page.component.scss'],
+  selector: 'app-admin-user-table',
+  templateUrl: './admin-user-table.component.html',
+  styleUrls: ['./admin-user-table.component.scss']
 })
-export class AdminPageComponent implements OnDestroy {
+export class AdminUserTableComponent implements OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   users: User[] = [];
 

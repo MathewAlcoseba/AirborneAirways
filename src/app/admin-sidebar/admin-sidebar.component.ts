@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -12,7 +13,7 @@ export class AdminSidebarComponent implements OnInit {
   selectedItem: string | null = null;
   sidebarWidth = 20;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute,private authService: AuthService) {}
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -75,14 +76,22 @@ export class AdminSidebarComponent implements OnInit {
     }
   }
   logout(): void {
-    // Perform logout actions, e.g., clear user authentication, navigate to home page
+    // Perform common logout actions, e.g., clear user authentication, navigate to home page
     // For demonstration purposes, let's assume you have an AuthService with a logout method
     // Replace 'AuthService' with your actual authentication service
-    // this.authService.logout();
-
+    this.authService.logout();
+  
+    // Check if the user is an admin and perform additional admin logout actions if needed
+    if (this.authService.isAdmin()) {
+      this.authService.adminLogout();
+      // Additional logic for admin logout UI or navigation if needed
+    }
+  
     // After logout, navigate to the home page
     this.router.navigate(['/']);
   }
+
+
   
   private getLastChild(route: ActivatedRoute): ActivatedRoute | null {
     let currentRoute: ActivatedRoute | null = route;

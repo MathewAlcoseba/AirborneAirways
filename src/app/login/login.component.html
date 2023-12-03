@@ -1,37 +1,57 @@
 <div class="container">
-    <div class="row justify-content-center align-items-center" style="height:100vh;">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title text-center">Airborne Airways</h3>
-                    <h1 class="welcome">Welcome!</h1>
-                    <h2 class="register">Register</h2>
-                    <form>
-                     
-                        <div class="form-group">
-                            
-                            <label for="email"><i class="bi bi-envelope"></i>Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="password"><i class="bi bi-lock"></i>Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="enter password">
-                        </div>
-                       
-                        <p class="loginLink" >No account yet? <a class="link-offset-2 link-underline link-underline-opacity-100" routerLink="/register">Register here</a></p>
-             
-
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
-                    </form>
-                    <img src="assets/headline.png" alt="" class="headline-image">
-                    <img src="assets/airport.png" alt="" class="background-image">
-
-                </div>
+  <div
+    class="row justify-content-center align-items-center"
+    style="height: 100vh"
+  >
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center">Airborne Airways</h3>
+          <h1 class="welcome">Welcome!</h1>
+          <h2 class="login">Login</h2>
+          <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+            <div class="form-group">
+              <label for="email"><i class="bi bi-envelope"></i>Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="enter email"
+                formControlName="email"
+              />
             </div>
+            <div class="form-group">
+              <label for="password"><i class="bi bi-lock"></i>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="enter password"
+                formControlName="password"
+              />
+            </div>
+
+            <p class="registerLink">
+              No account yet?
+              <a
+                class="link-offset-2 link-underline link-underline-opacity-100"
+                routerLink="/register"
+                >Register here</a
+              >
+            </p>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              Login
+            </button>
+          </form>
+          <img src="assets/headline.png" alt="" class="headline-image" />
+          <img src="assets/airport.png" alt="" class="background-image" />
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
