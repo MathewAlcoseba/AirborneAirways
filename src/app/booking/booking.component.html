@@ -88,4 +88,9 @@
   </div>
 
   <button (click)="bookFlight()">Book Flight</button>
+
+  <div class="ticket-price">
+    <p *ngIf="ticketPrice > 0">PHP {{ ticketPrice.toFixed(2) }}</p>
+    <p *ngIf="ticketPrice <= 0">PHP 00.00</p>
+  </div>
 </div>
