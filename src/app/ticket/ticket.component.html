@@ -2,9 +2,8 @@
   <div *ngFor="let flight of userFlights" class="ticket" id="ticket">
     <img src="assets/ticketpass.svg" alt="" id="ticketpass" />
 
-<div class="contents">
-    
-    <div class="countries">
+    <div class="contents">
+      <div class="countries">
         <div class="country1">
           <p>{{ flight.origin }}</p>
         </div>
@@ -13,21 +12,22 @@
           <p>{{ flight.destination }}</p>
         </div>
       </div>
-  
+
       <div class="ticketTop">
         <div class="flightID">
-          <p>Flight No.{{ flight.flightId }}</p>
+          <p>Flight No. {{ flight.flightNumber }}</p>
         </div>
         <div class="flightDate">
           <p>{{ flight.departureDate }}</p>
         </div>
       </div>
-  
+
       <div class="flightDetails">
         <div class="departure">
-            <p>PRICE</p>
-            <p class="date">PESOS</p>
-          </div>
+          <p>PRICE</p>
+          <p>₱{{ flight.ticketPrice }}.00</p>
+          <!-- <p class="date">PESOS</p> -->
+        </div>
         <div class="departure">
           <p>DEPARTURE</p>
           <p class="date">{{ flight.departureDate }}</p>
@@ -38,12 +38,14 @@
         </div>
         <div class="gate">
           <p>GATE</p>
+          <p>{{ flight.gate }}</p>
         </div>
       </div>
-  
+
       <div class="seat">
         <div class="seatNo">SEAT:</div>
+        <p>{{ flight.seat }}</p>
       </div>
-</div>
+    </div>
   </div>
 </div>
