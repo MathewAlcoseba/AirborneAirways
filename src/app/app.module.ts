@@ -26,14 +26,7 @@ import { AdminFlightsTableComponent } from './admin-flights-table/admin-flights-
 import { AuthService } from './auth.service';
 import { AdminBookedFlightsComponent } from './admin-booked-flights/admin-booked-flights.component';
 import { TicketComponent } from './ticket/ticket.component';
-
-
-
-// const routes: Routes =[
-
-
-
-// ];
+import { AdminUserFlightsComponent } from './admin-user-flights/admin-user-flights.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +43,8 @@ import { TicketComponent } from './ticket/ticket.component';
     NavbarComponent,
     AdminFlightsTableComponent,
     AdminBookedFlightsComponent,
-    TicketComponent
+    TicketComponent,
+    AdminUserFlightsComponent
     
   ],
   imports: [

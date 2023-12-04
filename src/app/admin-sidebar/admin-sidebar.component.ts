@@ -69,6 +69,9 @@ export class AdminSidebarComponent implements OnInit {
         case 'booked-flights':
           this.selectedItem = 'booked-flights';
           break;
+          case 'user-flights':
+            this.selectedItem = 'booked-flights';
+            break;
         default:
           this.selectedItem = 'home';
           break;
@@ -76,18 +79,10 @@ export class AdminSidebarComponent implements OnInit {
     }
   }
   logout(): void {
-    // Perform common logout actions, e.g., clear user authentication, navigate to home page
-    // For demonstration purposes, let's assume you have an AuthService with a logout method
-    // Replace 'AuthService' with your actual authentication service
     this.authService.logout();
-  
-    // Check if the user is an admin and perform additional admin logout actions if needed
     if (this.authService.isAdmin()) {
       this.authService.adminLogout();
-      // Additional logic for admin logout UI or navigation if needed
     }
-  
-    // After logout, navigate to the home page
     this.router.navigate(['/']);
   }
 
