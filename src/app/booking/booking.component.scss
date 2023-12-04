@@ -1,206 +1,178 @@
- .whiteborder {
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1078px; 
-    height: 189px; 
-    background-color: white;
-    border-radius: 13px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px; 
-  }
-  .input-container1,  .input-container2 {
-    width: 25%;
-    font-family: 'poppins', sans-serif;
-    color:#919191;
-  }
-
-  .input-container2 {
-    margin-left: 70px;
-    
-  }
-  .input-container1 {
-    margin-left: 20px;
-  }
-  .icon-text {
-    display: flex;
-    align-items: center;
-  }
-  
-  .icon-text i {
-    margin-right: 5px; /* Adjust the margin between the icon and text */
-  }
-  
- 
-
-  input, select {
-    width: 100%;
-    padding-top: 8%;
-    padding-bottom: 8%;
-    padding-left: 15px;
-    box-sizing: border-box;
-    margin-top: 0.1%;
-    border: 2px solid #919191; 
-    border-radius: 5px;
-  }
-  
-  .datecontainer{
-    display: flex;
-    margin-top: 0.1%;
-    padding-top: 1.2%;
-    padding-bottom: 1.2%;
-    align-items: center;
-    border: 2px solid #919191; 
-    border-radius: 5px;
-    
-  }
-
-
-  input[type="date"] {
-    color: #919191;
-    width: 150%;
-    font-size: 12px;
-    border: none;
-  }
-  #datepicker::-webkit-calendar-picker-indicator {
-    color: #919191;
-  cursor: pointer;
-  }
-  #datepicker2::-webkit-calendar-picker-indicator {
-    color: #919191;
-    cursor: pointer;
-  }
-
-  #arrow{
-
-    font-size: 48px;
-    font-weight: bolder;
-  }
-  button {
-    background-color: #605DEC;
-    color: white;
-    font-family: 'poppins', sans-serif;
-    padding: 10px 15px;
-    width: 146px;
-height: 58px;
-flex-shrink: 0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 15%;
-  }
-
-  button:hover {
-    background-color: #544cd2; 
-  }
-
-  .input-container {
-    position: relative;
-  }
-  
-  .dropdown-container {
-    position: absolute;
-    width: 100%;
-    z-index: 1000; /* Ensure it appears above other content */
-  }
-  
-  .dropdown-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #ccc;
-    background-color: white;
-    max-height: 200px;
-    overflow-y: auto;
-    width: 10.5%; /* Match the width of the input */
-  }
-  
-  .dropdown-list li {
-    padding: 8px;
-    cursor: pointer;
-  }
-  
-  .dropdown-list li:hover {
-    background-color: #f0f0f0;
-  }
-
-
-
-  .flex-container {
+.whiteborder {
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1078px;
+  height: 189px;
+  background-color: white;
+  border-radius: 13px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column; 
-  align-items: start; 
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+// img{
+//   margin-right: ;
+// }
+.input-container1,
+.input-container2 {
+  width: 25%;
+  font-family: "poppins", sans-serif;
+  color: #919191;
+}
+
+.input-container2 {
+  margin-left: 70px;
+}
+.input-container1 {
+  margin-left: 20px;
+}
+.icon-text {
+  display: flex;
+  align-items: center;
+}
+
+.icon-text i {
+  margin-right: 5px; /* Adjust the margin between the icon and text */
+}
+
+input,
+select {
+  width: 100%;
+  padding-top: 8%;
+  padding-bottom: 8%;
+  padding-left: 15px;
+  box-sizing: border-box;
+  margin-top: 0.1%;
+  border: 2px solid #919191;
+  border-radius: 5px;
+}
+
+.datecontainer {
+  display: flex;
+  margin-top: 0.1%;
+  padding-top: 1.2%;
+  padding-bottom: 1.2%;
+  align-items: center;
+  border: 2px solid #919191;
+  border-radius: 5px;
+}
+
+input[type="date"] {
+  color: #919191;
+  width: 150%;
+  font-size: 12px;
+  border: none;
+}
+#datepicker::-webkit-calendar-picker-indicator {
+  color: #919191;
+  cursor: pointer;
+}
+#datepicker2::-webkit-calendar-picker-indicator {
+  color: #919191;
+  cursor: pointer;
+}
+
+#arrow {
+  font-size: 48px;
+  font-weight: bolder;
+}
+button {
+  background-color: #605dec;
+  color: white;
+  font-family: "poppins", sans-serif;
+  padding: 10px 15px;
+  width: 146px;
+  height: 58px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 15%;
+}
+
+button:hover {
+  background-color: #544cd2;
+}
+
+.input-container {
+  position: relative;
+}
+
+.dropdown-container {
+  position: absolute;
+  width: 100%;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+.dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  background-color: white;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 10.5%; /* Match the width of the input */
+}
+
+.dropdown-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dropdown-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   padding-bottom: 4%;
 }
 
-
-.dropdown-center{
-
-  padding-bottom:5%;
+.dropdown-center {
+  padding-bottom: 5%;
 }
 .btn.btn-secondary {
   padding-top: 5px;
   padding-bottom: 5px;
   width: 100%;
   height: 10%;
-  background-color: transparent; 
+  background-color: transparent;
   color: #484848;
-  border: none; 
-}
-
-.time-picker {
-  display: flex;
-  flex-direction: column; // Stack elements vertically
-  align-items: center; // Center-align the child elements
-  font-family: 'Poppins', sans-serif;
-
-  .input-group {
-    display: flex;
-    flex-direction: row; // Elements in a row
-    align-items: center;
-    margin-bottom: 5px; // Space between input group and buttons
-
-    .form-control {
-      max-width: 60px; // Adjust as needed
-      height: 30px;
-      font-size: 0.8rem;
-      text-align: center;
-      border-radius: 5px;
-    }
-
-    .input-group-text {
-      font-size: 0.8rem;
-      background-color: transparent;
-      border-left: 0;
-    }
-  }
-
-  .button-group {
-    display: flex;
-    flex-direction: column; // Stack buttons vertically
-    align-items: center; // Center-align buttons
-
-    .btn {
-      padding: 0 8px; // Increase width of buttons
-      height: 25px; // Decrease height of buttons
-      font-size: 0.7rem;
-
-      i {
-        font-size: 0.7rem;
-      }
-    }
-  }
+  border: none;
 }
 
 .top-row-container {
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: center;
+  align-items: baseline;
+  gap: 2%;
   width: 100%;
-  gap: 3%;
-  padding-bottom: 2%;
+  position: relative;
+  margin-top: -10px;
+  
 }
+
+.dropdown-center {
+  margin-right: 3%;
+}
+
+
+@media (max-width: 768px) {
+  .top-row-container {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .dropdown-center{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+

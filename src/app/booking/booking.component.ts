@@ -25,8 +25,7 @@ export class BookingComponent implements OnInit {
   departureDate: string = '';
   returnDate: string = '';
   selectedTripType: string = 'Round-trip';
-  timeValue: string = '12:00';
-  period: 'AM' | 'PM' = 'AM';
+
 
 
 
@@ -95,48 +94,7 @@ export class BookingComponent implements OnInit {
     this.isRoundTripSelected = value === 'Round-trip';
   }
  
-  adjustTime(minutesDelta: number): void {
-    let [hours, minutes] = this.timeValue.split(':').map(Number);
-    minutes += minutesDelta;
-
-    if (minutes >= 60) {
-      hours++;
-      minutes -= 60;
-    } else if (minutes < 0) {
-      hours--;
-      minutes += 60;
-    }
-
-    if (hours >= 12) {
-      hours -= 12;
-      this.togglePeriod();
-    } else if (hours < 0) {
-      hours += 12;
-      this.togglePeriod();
-    }
-
-    if (hours === 0) {
-      hours = 12; // Handle the 12 AM and 12 PM scenarios
-    }
-
-    this.timeValue = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-  }
-
-  // Method to increase time
-  increaseTime(): void {
-    this.adjustTime(1); // Increase by 1 minute
-  }
-
-  // Method to decrease time
-  decreaseTime(): void {
-    this.adjustTime(-1); // Decrease by 1 minute
-  }
-
-  // Toggle between AM and PM
-  togglePeriod(): void {
-    this.period = this.period === 'AM' ? 'PM' : 'AM';
-  }
-
+  
   
   bookFlight(): void {
     console.log('Is user logged in:', this.authService.isLoggedIn());
