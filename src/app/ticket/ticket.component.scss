@@ -12,8 +12,8 @@
     position: absolute;
     top: 10%;
     left: 15%;
-    right: 15%; /* Adjust left and right to control the width */
-    bottom: 10%; /* Adjust top and bottom to control the height */
+    right: 15%; 
+    bottom: 10%; 
     z-index: 2;
   }
 .ticket {
@@ -44,7 +44,7 @@
 
 .flightDate {
   position: fixed;
-  left: calc(490% + 50px);
+  left: calc(450% + 50px);
   white-space: nowrap;
   top: 0;
 }

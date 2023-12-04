@@ -12,7 +12,7 @@ export class TicketComponent implements OnInit {
   destinationCountry: string = '';
   departureDate: string = '';
   returnDate: string = '';
-  flightId: string = ''; // Placeholder for flightId
+  flightId: string = ''; 
   numberOfUserFlights: number = 0; 
   userFlights: any[] = [];
  
@@ -30,13 +30,11 @@ export class TicketComponent implements OnInit {
   ngOnInit() {
     console.log('Is user logged in:', this.authService.isLoggedIn());
     if (this.authService.isLoggedIn()) {
-      // Get the currently logged-in user
       const currentUser = this.authService.getUser();
-      // Check if the user has a subcollection 'userFlights'
+      // Check if naay shay bookedflights
       if (currentUser && currentUser.userId) {
         const userFlightsCollection = this.angularFirestore.collection(`users/${currentUser.userId}/userFlights`);
-
-        // Fetch all user flights
+        // Fetch all
         userFlightsCollection
           .valueChanges()
           .subscribe((flights: any[]) => {
@@ -69,7 +67,7 @@ export class TicketComponent implements OnInit {
       if (!this.isDragging) return;
       event.preventDefault();
       const x = event.pageX - wrapper.offsetLeft;
-      const walk = (x - this.startX) * 3; // Adjust for desired scroll speed
+      const walk = (x - this.startX) * 2; // Adjust for desired scroll speed
       wrapper.scrollLeft = this.scrollLeft - walk;
     });
   }

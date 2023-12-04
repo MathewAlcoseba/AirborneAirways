@@ -53,14 +53,12 @@ export class BookingComponent implements OnInit {
       );
 
       if (flight) {
-        // Calculate ticket price based on flight type
+        // ticket price calc, if round trip kay mudoble ang price pero discounted 10% hehe
         this.ticketPrice = this.isRoundTripSelected ? flight.ticketPrice * 2 * 0.9 : flight.ticketPrice;
       } else {
-        // Default price if no valid flight is found
         this.ticketPrice = 0;
       }
     } else {
-      // Default price if either departure or destination is not selected
       this.ticketPrice = 0;
     }
   }
@@ -72,12 +70,9 @@ export class BookingComponent implements OnInit {
       .filter(flight => flight.origin === origin)
       .map(flight => flight.destination);
   
-    // Keep the selected country in the input field
     this.departureSearchQuery = origin; 
-    // Close the dropdown
     this.showDepartureDropdown = false;
   
-    // Update the filtered destination countries based on the new destination options
     this.filterDestinationCountries();
   }
   
@@ -85,9 +80,7 @@ export class BookingComponent implements OnInit {
 
   selectDestinationCountry(country: string): void {
     this.selectedDestinationCountry = country;
-    // this.sharedService.changeDestinationCountry(country); 
     this.destinationSearchQuery = country;
-    // Additional logic if needed
     this.calculateTicketPrice();
   }
 
@@ -126,9 +119,9 @@ export class BookingComponent implements OnInit {
         console.log('All flights:', this.flights);
   
         if (flight) {
-          // Calculate ticket price based on flight type
+          // ticket price calc, if round trip kay mudoble ang price pero discounted 10% hehe
           const ticketPrice = this.isRoundTripSelected
-            ? flight.ticketPrice * 2 * 0.9  // 10% discount for round-trip
+            ? flight.ticketPrice * 2 * 0.9  
             : flight.ticketPrice;
   
           const seat = this.generateRandomSeat();

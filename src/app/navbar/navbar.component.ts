@@ -11,17 +11,13 @@ export class NavbarComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   getLoggedInUserFirstName(): string | null {
-    // Check if a user is logged in
     if (this.authService.isLoggedIn()) {
-      // If logged in, return the first name
       return this.authService.user.firstName;
     }
 
-    // If not logged in, return null
     return null;
   }
   logout(): void {
-    // Call the logout method from AuthService
     this.authService.logout();
 
     this.router.navigateByUrl('/login', { skipLocationChange: true }).then(() => {
