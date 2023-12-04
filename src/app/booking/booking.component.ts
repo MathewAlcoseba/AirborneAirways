@@ -193,7 +193,7 @@ export class BookingComponent implements OnInit {
     const getConsonants = (str: string) => str.replace(/[aeiouAEIOU0-9]/g, '');
     const originConsonants = getConsonants(origin).slice(0, 2);
     const destinationConsonants = getConsonants(destination).slice(0, 2);
-    const randomNumbers = Math.floor(100 + Math.random() * 900); // 3 random digits
+    const randomNumbers = Math.floor(100 + Math.random() * 900); 
     return originConsonants + destinationConsonants + randomNumbers;
   }
 
