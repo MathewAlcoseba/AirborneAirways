@@ -1,32 +1,29 @@
-#Title{
-    font-family: 'Paytone One', sans-serif;
-    color: #605DEC;
+#Title {
+  font-family: "Paytone One", sans-serif;
+  color: #605dec;
 }
 
-div, .col{
-
-    color: #7C8DB0;
+div,
+.col {
+  color: #7c8db0;
 }
 
+p,
+a {
+  color: #7c8db0;
+  font-family: "Poppins", sans-serif;
+}
 
-    p, a {
-        color: #7C8DB0 ;
-        font-family: 'Poppins', sans-serif;
-       
-    }
-
-.my-5{
-
-    padding-top: 10%;
+.my-5 {
+  padding-top: 10%;
 }
 
 .container.my-5 {
-    width: 100%;       
-    max-width: 100%; 
-    margin: auto;      
-  }
-  
-  .custom-gap {
-    margin-right: 50px; 
-   
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+}
+
+.custom-gap {
+  margin-right: 50px;
 }

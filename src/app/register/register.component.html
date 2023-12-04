@@ -17,7 +17,7 @@
                 *ngIf="registerForm.get('firstname')?.hasError('required')"
                 class="text-danger"
               >
-                First name is required.
+               
               </div>
               <label for="username"
                 ><i class="bi bi-person-fill"></i>First Name:</label
@@ -35,7 +35,7 @@
                 *ngIf="registerForm.get('lastname')?.hasError('required')"
                 class="text-danger"
               >
-                Last name is required.
+           
               </div>
               <label for="username"
                 ><i class="bi bi-person-fill"></i>Last Name:</label
@@ -53,13 +53,13 @@
                 *ngIf="registerForm.get('email')?.hasError('required')"
                 class="text-danger"
               >
-                Email is required.
+              
               </div>
               <div
                 *ngIf="registerForm.get('email')?.hasError('email')"
                 class="text-danger"
               >
-                Please enter a valid email address.
+                
               </div>
               <label for="email"><i class="bi bi-envelope"></i>Email:</label>
               <input
@@ -75,18 +75,18 @@
                 *ngIf="registerForm.get('password')?.hasError('required')"
                 class="text-danger"
               >
-                Password is required.
+               .
               </div>
               <div
                 *ngIf="registerForm.get('password')?.hasError('minlength')"
                 class="text-danger"
               >
-                Password must be at least
+                
                 {{
                   registerForm.get("password")?.getError("minlength")
                     ?.requiredLength
                 }}
-                characters.
+               
               </div>
               <label for="password"><i class="bi bi-lock"></i>Password</label>
               <input
@@ -102,7 +102,7 @@
                 *ngIf="registerForm.get('password2')?.hasError('required')"
                 class="text-danger"
               >
-                Confirmation password is required.
+               
               </div>
               <label for="password2"
                 ><i class="bi bi-lock"></i>Confirm Password</label
