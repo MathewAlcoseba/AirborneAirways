@@ -1,5 +1,6 @@
 <div class="whiteborder">
   <div class="flex-container">
+  <div class="top-row-container">
     <div class="dropdown-center">
       <button
         class="btn btn-secondary dropdown-toggle"
@@ -28,7 +29,30 @@
         </li>
       </ul>
     </div>
-
+    <div class="time-picker">
+      <div class="input-group">
+        <input type="text" class="form-control text-center" [(ngModel)]="timeValue">
+        <span class="input-group-text">{{ period }}</span>
+        <div class="input-group-append">
+        <div class="button-group">
+          <button class="btn btn-outline-secondary" type="button" (click)="increaseTime()">
+            <i class="bi bi-chevron-up"></i>
+          </button>
+          <button class="btn btn-outline-secondary" type="button" (click)="decreaseTime()">
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <button class="btn btn-outline-secondary" type="button" (click)="togglePeriod()">
+            AM/PM
+          </button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    
+    
+    
     <div class="input-container3">
       <input
         type="text"
@@ -72,16 +96,15 @@
 
   <div class="datecontainer">
     <div class="input-container1">
-      <input type="date" id="datepicker" [(ngModel)]="departureDate" />
+      <input type="date" [(ngModel)]="departureDate" (change)="onDateChange()" id="datepicker1">
+
+
     </div>
 
     <div class="input-container2">
-      <input
-        type="date"
-        id="datepicker2"
-        [disabled]="!isRoundTripSelected"
-        [(ngModel)]="returnDate"
-      />
+    
+      <input type="date" [(ngModel)]="returnDate" (change)="onReturnDateChange()" id="datepicker2" [disabled]="!isRoundTripSelected">
+
     </div>
   </div>
 

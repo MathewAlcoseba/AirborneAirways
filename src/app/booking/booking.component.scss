@@ -151,3 +151,56 @@ flex-shrink: 0;
   border: none; 
 }
 
+.time-picker {
+  display: flex;
+  flex-direction: column; // Stack elements vertically
+  align-items: center; // Center-align the child elements
+  font-family: 'Poppins', sans-serif;
+
+  .input-group {
+    display: flex;
+    flex-direction: row; // Elements in a row
+    align-items: center;
+    margin-bottom: 5px; // Space between input group and buttons
+
+    .form-control {
+      max-width: 60px; // Adjust as needed
+      height: 30px;
+      font-size: 0.8rem;
+      text-align: center;
+      border-radius: 5px;
+    }
+
+    .input-group-text {
+      font-size: 0.8rem;
+      background-color: transparent;
+      border-left: 0;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column; // Stack buttons vertically
+    align-items: center; // Center-align buttons
+
+    .btn {
+      padding: 0 8px; // Increase width of buttons
+      height: 25px; // Decrease height of buttons
+      font-size: 0.7rem;
+
+      i {
+        font-size: 0.7rem;
+      }
+    }
+  }
+}
+
+.top-row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  gap: 3%;
+  padding-bottom: 2%;
+}

@@ -3,6 +3,7 @@ import { AuthService } from '../auth.service';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-booking',
@@ -24,7 +25,8 @@ export class BookingComponent implements OnInit {
   departureDate: string = '';
   returnDate: string = '';
   selectedTripType: string = 'Round-trip';
-
+  timeValue: string = '12:00';
+  period: 'AM' | 'PM' = 'AM';
 
 
 
@@ -32,7 +34,8 @@ export class BookingComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private angularFirestore: AngularFirestore // Inject AngularFirestore
+    private angularFirestore: AngularFirestore,
+    private sharedService: SharedService
   ) { }
   
   ngOnInit(): void {
@@ -49,6 +52,7 @@ export class BookingComponent implements OnInit {
 
   selectDepartureCountry(origin: string): void {
     this.selectedDepartureCountry = origin;
+    this.sharedService.changeDepartureCountry(origin);
     this.destinationOptions = this.flights
       .filter(flight => flight.origin === origin)
       .map(flight => flight.destination);
@@ -67,6 +71,7 @@ export class BookingComponent implements OnInit {
 
   selectDestinationCountry(country: string): void {
     this.selectedDestinationCountry = country;
+    this.sharedService.changeDestinationCountry(country); 
     this.destinationSearchQuery = country;
     // Additional logic if needed
   }
@@ -88,6 +93,48 @@ export class BookingComponent implements OnInit {
 
   onRadioChange(value: string): void {
     this.isRoundTripSelected = value === 'Round-trip';
+  }
+ 
+  adjustTime(minutesDelta: number): void {
+    let [hours, minutes] = this.timeValue.split(':').map(Number);
+    minutes += minutesDelta;
+
+    if (minutes >= 60) {
+      hours++;
+      minutes -= 60;
+    } else if (minutes < 0) {
+      hours--;
+      minutes += 60;
+    }
+
+    if (hours >= 12) {
+      hours -= 12;
+      this.togglePeriod();
+    } else if (hours < 0) {
+      hours += 12;
+      this.togglePeriod();
+    }
+
+    if (hours === 0) {
+      hours = 12; // Handle the 12 AM and 12 PM scenarios
+    }
+
+    this.timeValue = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+  }
+
+  // Method to increase time
+  increaseTime(): void {
+    this.adjustTime(1); // Increase by 1 minute
+  }
+
+  // Method to decrease time
+  decreaseTime(): void {
+    this.adjustTime(-1); // Decrease by 1 minute
+  }
+
+  // Toggle between AM and PM
+  togglePeriod(): void {
+    this.period = this.period === 'AM' ? 'PM' : 'AM';
   }
 
   
@@ -151,6 +198,12 @@ export class BookingComponent implements OnInit {
     this.isRoundTripSelected = option === 'Round-trip';
   }
   
+  onDateChange(): void {
+    this.sharedService.changeDepartureDate(this.departureDate);
+  }
+  onReturnDateChange(): void {
+    this.sharedService.changeReturnDate(this.returnDate);
+  }
   
 }
   

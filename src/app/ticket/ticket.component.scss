@@ -1,0 +1,102 @@
+.ticket {
+  padding-top: 10%;
+  padding-left: 19%;
+  position: relative;
+  z-index: -1;
+}
+
+.ticketTop {
+  position: absolute; // Changed to relative
+  top: 45%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #484848;
+  display: flex;
+  justify-content: start;
+  width: auto;
+  overflow: visible;
+}
+
+.flightID {
+  white-space: nowrap;
+}
+
+.flightDate {
+  position: absolute;
+  left: calc(520% + 50px);
+  white-space: nowrap;
+  top: 0;
+}
+
+.countries {
+  position: absolute;
+  top: 65%;
+  left: 56%;
+  transform: translate(-50%, -50%);
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #484848;
+  display: flex;
+  padding-bottom: 5%;
+  padding-right: 43%;
+  gap: 15%;
+}
+.flightDetails {
+  position: absolute;
+  top: 41.5%;
+  left: 42.5%;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #484848;
+  display: flex;
+  padding-top: 15%;
+  padding-right: 14%;
+  
+  gap: 30%;
+}
+.date{
+    font-size: 16px;
+    font-weight: 400;
+    color: #484848;
+    white-space: nowrap;
+}
+.flightDetailsSmall {
+  position: absolute;
+  top: 65%;
+  left: 56%;
+  transform: translate(-50%, -50%);
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #484848;
+  display: flex;
+  padding-top: 15%;
+  padding-left: 31%;
+  gap: 15%;
+}
+.seat {
+  position: absolute;
+  top: 65%;
+  left: 56%;
+  transform: translate(-50%, -50%);
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #484848;
+  padding-bottom: 4%;
+  padding-left: 11%;
+  gap: 15%;
+}
+.country1,
+.country2 {
+  padding-top: 5%;
+}
+.country1 p,
+.country2 p {
+  text-transform: uppercase;
+}
