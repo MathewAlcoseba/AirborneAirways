@@ -10,7 +10,7 @@
   
   .nav-link {
     display: inline;
-       vertical-align: middle;
+      vertical-align: middle;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
     color: #605DEC;
@@ -46,4 +46,32 @@
   
   .navbar {
     background-color: white;
+    top: 0%;
+    position: fixed;
+    width: 100%;
+    padding-bottom: 0.5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
+  .navbar-nav .nav-link {
+    position: relative;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #5856A8; /* Change as per your theme */
+  }
+  .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Adjust based on your navbar's height */
+    left: 0;
+    width: 0;
+    height: 2px; /* Thickness of the bottom bar */
+    background-color: #605DEC; /* Color of the bottom bar */
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .navbar-nav .nav-link:hover::after {
+    width: 100%;
+  }
+    

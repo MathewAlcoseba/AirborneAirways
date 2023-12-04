@@ -1,32 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent {
+export class HomepageComponent implements OnInit {
 
-}
+  constructor(private route: ActivatedRoute) {}
 
-// app.ts
-
-// Function to handle scrolling to the specified element
-function scrollToElement(elementId: string): void {
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-// Add an event listener to the "Flights" button
-document.addEventListener('DOMContentLoaded', () => {
-  const flightsButton = document.getElementById('flightsButton');
-
-  if (flightsButton) {
-    flightsButton.addEventListener('click', () => {
-      scrollToElement('bodyText1'); // Scroll to the bodyText1 section
+  ngOnInit(): void {
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        const element = document.getElementById(fragment);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     });
   }
-});
-
+}

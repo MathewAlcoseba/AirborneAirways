@@ -1,7 +1,7 @@
 
   
   .text {
-  margin-top: 3vh;
+  padding-top: 7%;
   margin-left: auto;
   margin-right: auto;
   width: 35%;
@@ -102,7 +102,49 @@ th, td{
   }
 
 
+  .ticket{
 
+    padding-top: 10%;
+    padding-left: 19%;
+    position: relative;
+    z-index: -1;
+  }
+ 
+ 
+  
+  .ticketTop {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #484848;
+    display: flex;
+    padding-bottom:5% ; /* Enables flexbox layout */
+    padding-right:43% ; /* Vertically centers the child elements */
+    gap: 250%;
+ 
+  }
+  .countries{
+    position: absolute;
+    top: 65%; 
+    left: 56%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    color: #484848;
+    display: flex;
+    padding-bottom:5% ; /* Enables flexbox layout */
+    padding-right:43% ; /* Vertically centers the child elements */
+    gap: 20%;
+  }
+ .country1, .country2{
+
+  padding-top: 5%;
+ }
 
   
   @media (max-width: 1366px) {
@@ -133,10 +175,7 @@ th, td{
       margin-left: 50%;
     }
   
-    // .userIcon {
-    //   margin-left: 8.5%;
-    //   width: 20%;
-    // }
+ 
   
     .image {
         margin-left: 20%; 
