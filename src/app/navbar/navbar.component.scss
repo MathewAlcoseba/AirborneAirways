@@ -46,8 +46,36 @@ margin-right: 5px; // Add some space between icon and text
 
 .navbar {
   background-color: white;
+  top: 0%;
+  position: fixed;
+  width: 100%;
+  padding-bottom: 0.5%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
 }
-/* navbar.component.scss */
+
+.navbar-nav .nav-link {
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #6E7491; /* Change as per your theme */
+}
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Adjust based on your navbar's height */
+  left: 0;
+  width: 0;
+  height: 2px; /* Thickness of the bottom bar */
+  background-color: #605DEC; /* Color of the bottom bar */
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
 
 .user-profile-dropdown {
 position: relative;
@@ -56,5 +84,5 @@ position: relative;
 .user-profile-dropdown .dropdown-menu {
 position: absolute;
 right: 0;
-top: 100%; /* Adjust the top position to align with the nav-link */
+top: 100%; 
 }
