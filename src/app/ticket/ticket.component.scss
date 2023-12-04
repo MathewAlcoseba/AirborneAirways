@@ -26,7 +26,7 @@
 .ticketTop {
   position: absolute; 
   top: 45%;
-  left: 30%;
+  left: 27%;
   transform: translate(-50%, -50%);
   font-family: "Poppins", sans-serif;
   font-size: 20px;
@@ -43,8 +43,8 @@
 }
 
 .flightDate {
-  position: absolute;
-  left: calc(250% + 50px);
+  position: fixed;
+  left: calc(490% + 50px);
   white-space: nowrap;
   top: 0;
 }
@@ -65,7 +65,7 @@
 }
 .flightDetails {
   position: absolute;
-  bottom: 1.0%;
+  bottom: 0.5%;
   right: 1.0%;
   font-family: "Poppins", sans-serif;
   font-size: 20px;
@@ -82,12 +82,13 @@
     font-weight: 400;
     color: #484848;
     white-space: nowrap;
+    align-items: center;
 }
 
 .seat {
   position: absolute;
   top: 65%;
-  left: 101%;
+  left: 104.5%;
   transform: translate(-50%, -50%);
   font-family: "Poppins", sans-serif;
   font-size: 20px;
