@@ -34,7 +34,7 @@ export class BookingComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private angularFirestore: AngularFirestore,
-    private sharedService: SharedService
+    // private sharedService: SharedService
   ) { }
   
   ngOnInit(): void {
@@ -51,7 +51,7 @@ export class BookingComponent implements OnInit {
 
   selectDepartureCountry(origin: string): void {
     this.selectedDepartureCountry = origin;
-    this.sharedService.changeDepartureCountry(origin);
+    // this.sharedService.changeDepartureCountry(origin);
     this.destinationOptions = this.flights
       .filter(flight => flight.origin === origin)
       .map(flight => flight.destination);
@@ -70,7 +70,7 @@ export class BookingComponent implements OnInit {
 
   selectDestinationCountry(country: string): void {
     this.selectedDestinationCountry = country;
-    this.sharedService.changeDestinationCountry(country); 
+    // this.sharedService.changeDestinationCountry(country); 
     this.destinationSearchQuery = country;
     // Additional logic if needed
   }
@@ -156,12 +156,12 @@ export class BookingComponent implements OnInit {
     this.isRoundTripSelected = option === 'Round-trip';
   }
   
-  onDateChange(): void {
-    this.sharedService.changeDepartureDate(this.departureDate);
-  }
-  onReturnDateChange(): void {
-    this.sharedService.changeReturnDate(this.returnDate);
-  }
+  // onDateChange(): void {
+  //   this.sharedService.changeDepartureDate(this.departureDate);
+  // }
+  // onReturnDateChange(): void {
+  //   this.sharedService.changeReturnDate(this.returnDate);
+  // }
   
 }
   

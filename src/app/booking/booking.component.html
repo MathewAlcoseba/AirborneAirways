@@ -1,39 +1,36 @@
 <div class="whiteborder">
   <div class="flex-container">
-  <div class="top-row-container">
-    <div class="dropdown-center">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        {{ selectedTripType }}
-      </button>
-      <ul class="dropdown-menu">
-        <li>
-          <a
-            class="dropdown-item"
-            href="#"
-            (click)="onSelectTripType('Round-trip')"
-            >Round-trip</a
-          >
-        </li>
-        <li>
-          <a
-            class="dropdown-item"
-            href="#"
-            (click)="onSelectTripType('One-way')"
-            >One-way</a
-          >
-        </li>
-      </ul>
+    <div class="top-row-container">
+      <div class="dropdown-center">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ selectedTripType }}
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a
+              class="dropdown-item"
+              href="#"
+              (click)="onSelectTripType('Round-trip')"
+              >Round-trip</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              href="#"
+              (click)="onSelectTripType('One-way')"
+              >One-way</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-    
-    
-    
-    
+
     <div class="input-container3">
       <input
         type="text"
@@ -77,15 +74,16 @@
 
   <div class="datecontainer">
     <div class="input-container1">
-      <input type="date" [(ngModel)]="departureDate" (change)="onDateChange()" id="datepicker1">
-
-
+      <input type="date" [(ngModel)]="departureDate" id="datepicker1" />
     </div>
 
     <div class="input-container2">
-    
-      <input type="date" [(ngModel)]="returnDate" (change)="onReturnDateChange()" id="datepicker2" [disabled]="!isRoundTripSelected">
-
+      <input
+        type="date"
+        [(ngModel)]="returnDate"
+        id="datepicker2"
+        [disabled]="!isRoundTripSelected"
+      />
     </div>
   </div>
 
