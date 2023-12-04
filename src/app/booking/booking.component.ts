@@ -25,7 +25,7 @@ export class BookingComponent implements OnInit {
   returnDate: string = '';
   selectedTripType: string = 'Round-trip';
   ticketPrice: number = 0;
-
+  showDepartureDropdown: boolean = false;
 
 
   constructor(
@@ -68,17 +68,15 @@ export class BookingComponent implements OnInit {
   selectDepartureCountry(origin: string): void {
     this.selectedDepartureCountry = origin;
     this.calculateTicketPrice();
-    // this.sharedService.changeDepartureCountry(origin);
     this.destinationOptions = this.flights
       .filter(flight => flight.origin === origin)
       .map(flight => flight.destination);
   
-    // Set the departureSearchQuery to the selected origin
-    this.departureSearchQuery = origin;
+    // Keep the selected country in the input field
+    this.departureSearchQuery = origin; 
+    // Close the dropdown
+    this.showDepartureDropdown = false;
   
-    // Reset the selected destination country when a new departure country is selected
-    this.selectedDestinationCountry = '';
-    this.destinationSearchQuery = '';
     // Update the filtered destination countries based on the new destination options
     this.filterDestinationCountries();
   }

@@ -93,7 +93,8 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 15%;
+  
+  
 }
 
 button:hover {
@@ -157,13 +158,32 @@ button:hover {
   align-items: baseline;
   gap: 2%;
   width: 100%;
-  position: relative;
-  margin-top: -10px;
+  
   
 }
 
 .dropdown-center {
   margin-right: 3%;
+}
+
+.ticket-price{
+  color: #484848;
+  font-family: 'Poppins', sans-serif;
+  padding-right: 35%;
+  margin-top: 0;
+  align-items: start;
+  white-space: nowrap;
+
+}
+
+.booking-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the items horizontally */
+  justify-content: center; /* Centers the items vertically */
+  gap: 10px;
+  width: auto; 
+  padding-top: 5%;/* Space between the button and the price div */
 }
 
 
