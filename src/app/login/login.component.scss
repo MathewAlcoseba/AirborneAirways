@@ -147,3 +147,23 @@ input[type="text"] {
     
 }
 }
+
+.back-container {
+  margin-top: 5%;
+  margin-left: 4%;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: #605DEC;
+  border: none;
+  width: 80px;
+  height: 40px;
+}
+
+.btn-secondary:hover {
+  background-color: rgb(240, 208, 243);
+  color: #ffffff;
+}
