@@ -2,53 +2,48 @@
   <div *ngFor="let flight of userFlights" class="ticket" id="ticket">
     <img src="assets/ticketpass.svg" alt="" id="ticketpass" />
 
+<div class="contents">
+    
     <div class="countries">
-      <div class="country1">
-        <p>{{ flight.origin }}</p>
+        <div class="country1">
+          <p>{{ flight.origin }}</p>
+        </div>
+        <img src="assets/arrow.svg" alt="" id="arrow" />
+        <div class="country2">
+          <p>{{ flight.destination }}</p>
+        </div>
       </div>
-      <img src="assets/arrow.svg" alt="" id="arrow" />
-      <div class="country2">
-        <p>{{ flight.destination }}</p>
+  
+      <div class="ticketTop">
+        <div class="flightID">
+          <p>Flight No.{{ flight.flightId }}</p>
+        </div>
+        <div class="flightDate">
+          <p>{{ flight.departureDate }}</p>
+        </div>
       </div>
-    </div>
-
-    <div class="ticketTop">
-      <div class="flightID">
-        <p>Flight.{{ flight.flightId }}</p>
+  
+      <div class="flightDetails">
+        <div class="departure">
+            <p>PRICE</p>
+            <p class="date">PESOS</p>
+          </div>
+        <div class="departure">
+          <p>DEPARTURE</p>
+          <p class="date">{{ flight.departureDate }}</p>
+        </div>
+        <div class="return">
+          <p>RETURN</p>
+          <p class="date">{{ flight.returnDate }}</p>
+        </div>
+        <div class="gate">
+          <p>GATE</p>
+        </div>
       </div>
-      <div class="flightDate">
-        <p>{{ flight.departureDate }}</p>
+  
+      <div class="seat">
+        <div class="seatNo">SEAT:</div>
       </div>
-    </div>
-
-    <div class="flightDetails">
-      <div class="departure">
-        <p>DEPARTURE</p>
-        <p class="date">{{ flight.departureDate }}</p>
-      </div>
-      <div class="return">
-        <p>RETURN</p>
-        <p class="date">{{ flight.returnDate }}</p>
-      </div>
-      <div class="gate">
-        <p>GATE</p>
-      </div>
-    </div>
-
-    <div class="flightDetailsSmall">
-      <div class="departure">
-        <p>DEP.</p>
-      </div>
-      <div class="return">
-        <p>RETURN</p>
-      </div>
-      <div class="gate">
-        <p>GATE</p>
-      </div>
-    </div>
-
-    <div class="seat">
-      <div class="seatNo">SEAT:</div>
-    </div>
+</div>
   </div>
 </div>

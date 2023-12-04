@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
+import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-ticket',
@@ -16,11 +15,16 @@ export class TicketComponent implements OnInit {
   flightId: string = ''; // Placeholder for flightId
   numberOfUserFlights: number = 0; 
   userFlights: any[] = [];
-  // Add properties for seat and gate as needed
+ 
+  private isDragging = false;
+  private startX!: number;
+  private scrollLeft!: number;
 
   constructor(
     private authService: AuthService,
-    private angularFirestore: AngularFirestore
+    private angularFirestore: AngularFirestore,
+    private renderer: Renderer2,
+    private el: ElementRef
   ) {}
 
   ngOnInit() {
@@ -41,8 +45,32 @@ export class TicketComponent implements OnInit {
           });
       }
     }
+    this.initDragScroll();
   }
 
   
+  private initDragScroll() {
+    const wrapper = this.el.nativeElement.querySelector('.wrapper');
+    this.renderer.listen(wrapper, 'mousedown', (event: MouseEvent) => {
+      this.isDragging = true;
+      this.startX = event.pageX - wrapper.offsetLeft;
+      this.scrollLeft = wrapper.scrollLeft;
+    });
 
+    this.renderer.listen(wrapper, 'mouseleave', () => {
+      this.isDragging = false;
+    });
+
+    this.renderer.listen(wrapper, 'mouseup', () => {
+      this.isDragging = false;
+    });
+
+    this.renderer.listen(wrapper, 'mousemove', (event: MouseEvent) => {
+      if (!this.isDragging) return;
+      event.preventDefault();
+      const x = event.pageX - wrapper.offsetLeft;
+      const walk = (x - this.startX) * 3; // Adjust for desired scroll speed
+      wrapper.scrollLeft = this.scrollLeft - walk;
+    });
+  }
 }
