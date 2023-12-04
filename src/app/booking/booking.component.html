@@ -1,21 +1,47 @@
 <div class="whiteborder">
   <div class="flex-container">
     <div class="dropdown-center">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
         {{ selectedTripType }}
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#" (click)="onSelectTripType('Round-trip')">Round-trip</a></li>
-        <li><a class="dropdown-item" href="#" (click)="onSelectTripType('One Way')">One Way</a></li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="#"
+            (click)="onSelectTripType('Round-trip')"
+            >Round-trip</a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="#"
+            (click)="onSelectTripType('One-way')"
+            >One-way</a
+          >
+        </li>
       </ul>
     </div>
 
-
     <div class="input-container3">
-      <input type="text" placeholder="Enter Departure" [(ngModel)]="departureSearchQuery" (input)="filterDepartureCountries()"/>
+      <input
+        type="text"
+        placeholder="Enter Departure"
+        [(ngModel)]="departureSearchQuery"
+        (input)="filterDepartureCountries()"
+      />
       <div class="dropdown-container" *ngIf="departureSearchQuery">
         <ul class="dropdown-list">
-          <li *ngFor="let country of filteredDepartureCountries" (click)="selectDepartureCountry(country)">
+          <li
+            *ngFor="let country of filteredDepartureCountries"
+            (click)="selectDepartureCountry(country)"
+          >
             {{ country }}
           </li>
         </ul>
@@ -23,31 +49,41 @@
     </div>
   </div>
 
-  <img src="assets/swap.png" alt="">
+  <img src="assets/swap.png" alt="" />
 
   <div class="input-container4">
-    <input type="text" placeholder="Enter Destination" [(ngModel)]="destinationSearchQuery" (input)="filterDestinationCountries()"/>
+    <input
+      type="text"
+      placeholder="Enter Destination"
+      [(ngModel)]="destinationSearchQuery"
+      (input)="filterDestinationCountries()"
+    />
     <div class="dropdown-container" *ngIf="destinationSearchQuery">
       <ul class="dropdown-list">
-        <li *ngFor="let country of filteredDestinationCountries" (click)="selectDestinationCountry(country)">
-          {{ country }}
+        <li
+          *ngFor="let destination of destinationOptions"
+          (click)="selectDestinationCountry(destination)"
+        >
+          {{ destination }}
         </li>
       </ul>
     </div>
   </div>
-    
-    
-  
-    <div class="datecontainer">
-      <div class="input-container1">
-        <input type="date" id="datepicker">
-      </div>
-    
-      <div class="input-container2">
-        <input type="date" id="datepicker2" [disabled]="selectedTripType === 'One Way'">
-      </div>
+
+  <div class="datecontainer">
+    <div class="input-container1">
+      <input type="date" id="datepicker" [(ngModel)]="departureDate" />
     </div>
-  
-    <button onclick="bookFlight()">Book Flight</button>
+
+    <div class="input-container2">
+      <input
+        type="date"
+        id="datepicker2"
+        [disabled]="!isRoundTripSelected"
+        [(ngModel)]="returnDate"
+      />
+    </div>
   </div>
-  
+
+  <button (click)="bookFlight()">Book Flight</button>
+</div>

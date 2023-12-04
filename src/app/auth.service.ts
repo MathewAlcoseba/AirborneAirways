@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  
   public user: any = null; // User information
 
   constructor(
@@ -46,6 +47,8 @@ export class AuthService {
       .collection('users', (ref) => ref.where('email', '==', email))
       .valueChanges();
   }
-
+  getUser() {
+    return this.user;
+  }
   
 }

@@ -8,6 +8,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
 import { AdminUserTableComponent } from './admin-user-table/admin-user-table.component';
 import { AdminFlightsTableComponent } from './admin-flights-table/admin-flights-table.component';
+import { AdminBookedFlightsComponent } from './admin-booked-flights/admin-booked-flights.component';
 
 const routes: Routes = [
 
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: '', component: AdminHomeComponent },
       { path: 'users', component: AdminUserTableComponent },
       { path: 'flights', component: AdminFlightsTableComponent },
+      { path: 'booked-flights', component: AdminBookedFlightsComponent },
     ]
   },
   { path:'', component: HomepageComponent},

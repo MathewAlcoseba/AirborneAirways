@@ -2,76 +2,59 @@
 
 
 .navbar-brand {
-    font-family: 'Paytone One', sans-serif;
-    font-size: 2em;
-    color: #605DEC;
-    margin-left: 20%;
-  }
-  
-  .nav-link {
-    display: inline;
-      vertical-align: middle;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    color: #605DEC;
-    margin-right: 15%;
-  }
-  .bi {
-    vertical-align: middle; // Same for the icon
+  font-family: 'Paytone One', sans-serif;
+  font-size: 2em;
+  color: #605DEC;
+  margin-left: 20%;
+}
+
+.nav-link {
+  display: inline;
+     vertical-align: middle;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #605DEC;
+  margin-right: 15%;
+}
+.bi {
+  vertical-align: middle; // Same for the icon
 }
 .icon-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .bi {
-  margin-right: 5px; // Add some space between icon and text
+margin-right: 5px; // Add some space between icon and text
 }
 
-  .navbar-nav {
-    margin-left: 50%; 
-    margin-top: 1%;
-    font-size: 1em;
-  }
-  
-  .login {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    color: #605DEC;
-    text-decoration: none;
-  }
-  
+.navbar-nav {
+  margin-left: 50%; 
+  margin-top: 1%;
+  font-size: 1em;
+}
 
-  
-  .navbar {
-    background-color: white;
-    top: 0%;
-    position: fixed;
-    width: 100%;
-    padding-bottom: 0.5%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  .navbar-nav .nav-link {
-    position: relative;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: #5856A8; /* Change as per your theme */
-  }
-  .navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px; /* Adjust based on your navbar's height */
-    left: 0;
-    width: 0;
-    height: 2px; /* Thickness of the bottom bar */
-    background-color: #605DEC; /* Color of the bottom bar */
-    transition: width 0.3s ease-in-out;
-  }
-  
-  .navbar-nav .nav-link:hover::after {
-    width: 100%;
-  }
-    
+.login {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #605DEC;
+  text-decoration: none;
+}
+
+
+
+.navbar {
+  background-color: white;
+}
+/* navbar.component.scss */
+
+.user-profile-dropdown {
+position: relative;
+}
+
+.user-profile-dropdown .dropdown-menu {
+position: absolute;
+right: 0;
+top: 100%; /* Adjust the top position to align with the nav-link */
+}
