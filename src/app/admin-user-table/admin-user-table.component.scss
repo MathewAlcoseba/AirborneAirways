@@ -2,12 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
-// *{
-//   padding: 0%;
-//   margin: 0%;
-//   box-sizing: border-box;
-//   font-family: 'Poppins', sans-serif;
-// }
+
 .table-custom-style {
   border-radius: 10px; 
   overflow: hidden; 
@@ -26,7 +21,19 @@
   box-shadow: 0px 2.76726px 2.21381px 0px rgba(0, 0, 0, 0.04), 0px 6.6501px 5.32008px 0px rgba(0, 0, 0, 0.06), 0px 12.52155px 10.01724px 0px rgba(0, 0, 0, 0.07), 0px 22.33631px 17.86905px 0px rgba(0, 0, 0, 0.08), 0px 41.77761px 33.42209px 0px rgba(0, 0, 0, 0.09), 0px 100px 80px 0px rgba(0, 0, 0, 0.13);
 }
 
+.btn-primary {
+  background-color:#8fb9fd;
+  color: #1e1d5e;
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 5px 10px; 
+  margin-right: 11px;
+}
 
+.btn-primary:hover {
+  background-color: rgb(26, 34, 70);
+  color: white;
+}
 
 .button-1 {
   background-color: transparent;
@@ -46,8 +53,8 @@
   background-color: transparent;
   border: 2px solid #FFA3A3;
   color: #605DEC;
-  border-radius: 10px; // Adjust as needed
-  padding: 5px 10px; // Adjust as needed
+  border-radius: 10px; 
+  padding: 5px 10px; 
   margin-right: 11px;
 }
 
@@ -60,8 +67,8 @@
   background-color: transparent;
   border: 2px solid #040b74;
   color: #605DEC;
-  border-radius: 10px; // Adjust as needed
-  padding: 5px 10px; // Adjust as needed
+  border-radius: 10px; 
+  padding: 5px 10px; 
   margin-right: 11px;
 }
 
@@ -70,10 +77,10 @@
   color: white;
 }
 .photo-cell {
-  width: 25px; /* Adjust the width as needed */
-  height: 25px; /* Adjust the height as needed */
+  width: 25px; 
+  height: 25px; 
   overflow: hidden;
-  border-radius: 50%; /* For a circular shape, adjust as needed */
+  border-radius: 50%; 
 }
 
 .photo-responsive {
@@ -90,7 +97,7 @@
 }
 
 .form-group {
-  width: 48%; // Adjust as needed
+  width: 48%; 
 }
 
 .btn {
@@ -105,3 +112,4 @@ h2 {
 .buttons {
   margin-top: 1%;
 }
+

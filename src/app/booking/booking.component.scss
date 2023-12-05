@@ -15,10 +15,9 @@
 
 .ticket-price {
   display: block;
+  color: #605dec;
 }
-// img{
-//   margin-right: ;
-// }
+
 .input-container1,
 .input-container2 {
   width: 25%;
@@ -38,7 +37,7 @@
 }
 
 .icon-text i {
-  margin-right: 5px; /* Adjust the margin between the icon and text */
+  margin-right: 5px; 
 }
 
 input,
@@ -108,7 +107,7 @@ button:hover {
 .dropdown-container {
   position: absolute;
   width: 100%;
-  z-index: 1000; /* Ensure it appears above other content */
+  z-index: 1000; 
 }
 
 .dropdown-list {
@@ -179,8 +178,8 @@ button:hover {
 .booking-action {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers the items horizontally */
-  justify-content: center; /* Centers the items vertically */
+  align-items: center; 
+  justify-content: center; 
   gap: 10px;
   width: auto; 
   padding-top: 5%;/* Space between the button and the price div */

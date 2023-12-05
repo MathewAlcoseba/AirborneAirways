@@ -40,7 +40,10 @@
       />
       <div class="dropdown-container" *ngIf="departureSearchQuery">
         <ul class="dropdown-list">
-          <li *ngFor="let country of filteredDepartureCountries" (click)="selectDepartureCountry(country)">
+          <li
+            *ngFor="let country of filteredDepartureCountries"
+            (click)="selectDepartureCountry(country)"
+          >
             {{ country }}
           </li>
         </ul>
@@ -85,12 +88,13 @@
   </div>
 
   <div class="booking-action">
-  <button (click)="bookFlight()">Book Flight</button>
+    <button (click)="bookFlight()">Book Flight</button>
 
-  <div class="ticket-price">
-    <p *ngIf="ticketPrice > 0">PHP {{ ticketPrice.toFixed(2) }}</p>
-    <p *ngIf="ticketPrice <= 0">PHP 00.00</p>
+    <div class="ticket-price">
+      <p style="color: #605dec" *ngIf="ticketPrice > 0">
+        PHP {{ ticketPrice.toFixed(2) }}
+      </p>
+      <p style="color: #605dec" *ngIf="ticketPrice <= 0">PHP 00.00</p>
+    </div>
   </div>
-</div>
-
 </div>

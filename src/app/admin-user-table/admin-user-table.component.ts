@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 
 interface User {
@@ -10,6 +11,18 @@ interface User {
   firstName: string;
   lastName: string;
   email: string;
+}
+interface UserFlight {
+  flightId: string;
+  flightNumber: string;
+  flightType: string;
+  origin: string;
+  destination: string;
+  departureDate: string;
+  returnDate: string | null;
+  gate: string;
+  seat: string;
+  ticketPrice: number;
 }
 
 @Component({
@@ -20,8 +33,11 @@ interface User {
 export class AdminUserTableComponent implements OnDestroy {
   private ngUnsubscribe = new Subject<void>();
   users: User[] = [];
+  selectedUserId: string | null = null;
+  userFlights: UserFlight[] = [];
+  selectedUserName: string | null = null; 
 
-  constructor(private angularFirestore: AngularFirestore, private angularAuth: AngularFireAuth) {
+  constructor(private angularFirestore: AngularFirestore, private angularAuth: AngularFireAuth, private router: Router) {
     this.getDataFromFirestore();
   }
 
@@ -42,6 +58,8 @@ export class AdminUserTableComponent implements OnDestroy {
       firstName: formData.value.firstName,
       lastName: formData.value.lastName,
       email: formData.value.email,
+
+      
     };
 
     const password = formData.value.password;
@@ -68,7 +86,7 @@ export class AdminUserTableComponent implements OnDestroy {
   }
 
   deleteUser(userId: string) {
-    // Step 1: Delete from Firebase Authentication
+    // Delete from FireAuth
     this.angularAuth.currentUser
       .then((user) => {
         if (user) {
@@ -79,7 +97,7 @@ export class AdminUserTableComponent implements OnDestroy {
         }
       })
       .then(() => {
-        // Step 2: Delete from Firestore
+        // Delete from Firestore
         const userDocRef = this.angularFirestore.collection('users').doc(userId);
   
         return userDocRef.delete();
@@ -93,6 +111,29 @@ export class AdminUserTableComponent implements OnDestroy {
       });
   }
   
+  viewFlights(userId: string) {
+    this.selectedUserId = userId;
+
+    this.angularFirestore
+      .doc<User>(`users/${userId}`)
+      .valueChanges()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((user: User | undefined) => {
+        if (user) {
+          this.selectedUserName = `${user.firstName} ${user.lastName}'s Flights`;
+        } else {
+          this.selectedUserName = null;
+        }
+      });
+
+    this.angularFirestore
+      .collection<UserFlight>(`users/${userId}/userFlights`)
+      .valueChanges()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((flights: UserFlight[]) => {
+        this.userFlights = flights;
+      });
+  }
 
   ngOnDestroy() {
     this.ngUnsubscribe.next();
